@@ -2,11 +2,10 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "NODE_ENV=production npx vite build --config vite.config.prod.ts --mode production",
-        "outputDirectory": "dist/public"
+        "distDir": "dist/public"
       }
     }
   ],

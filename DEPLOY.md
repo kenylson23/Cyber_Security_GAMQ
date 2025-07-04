@@ -46,28 +46,57 @@ Se o deploy automático falhar, configure manualmente:
 
 ## Solução de Problemas
 
-### Se o build falhar com erro "Command exited with 1":
+### Se o build falhar com erro "functions should NOT have fewer than 1 properties":
 
-**Opção 1: Configuração Padrão (vercel.json)**
-- Arquivo já configurado no projeto
-- Build command otimizado para produção
+**PROBLEMA IDENTIFICADO**: O arquivo `vercel.json` anterior tinha um objeto `functions` vazio que não é permitido pelo schema do Vercel.
 
-**Opção 2: Configuração Alternativa**
+**SOLUÇÃO APLICADA**: Arquivo `vercel.json` foi corrigido para usar a estrutura correta do Vercel v2.
+
+### Opções de Deploy:
+
+**Opção 1: Configuração Principal (vercel.json)**
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "NODE_ENV=production npx vite build --config vite.config.prod.ts --mode production",
+        "outputDirectory": "dist/public"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+```
+
+**Opção 2: Configuração Alternativa (vercel-backup.json)**
 Se a primeira opção falhar:
-1. Renomeie `vercel.json` para `vercel-backup.json`
-2. Renomeie `vercel-alternative.json` para `vercel.json`
+1. Renomeie `vercel.json` para `vercel-old.json`
+2. Renomeie `vercel-backup.json` para `vercel.json`
 3. Faça novo deploy
 
 **Opção 3: Configuração Manual no Vercel**
 1. Acesse configurações do projeto no Vercel
 2. Configure:
-   - Build Command: `cd client && npx vite build --outDir ../dist/public --emptyOutDir`
+   - Build Command: `NODE_ENV=production npx vite build --config vite.config.prod.ts --mode production`
    - Output Directory: `dist/public`
    - Install Command: `npm install`
    - Node.js Version: 18.x
 
 ### Verificações Gerais:
-- Node version no Vercel (usar 18.x)
+- Node version no Vercel (usar 18.x ou superior)
 - Variáveis de ambiente se necessário
 - Logs de build no dashboard do Vercel
+- Certificar que o arquivo `.vercelignore` está presenteashboard do Vercel
 - Se persistir erro, usar configuração manual
