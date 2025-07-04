@@ -106,9 +106,13 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 - Created `vercel.json` with static build configuration
 - Added `.vercelignore` to exclude unnecessary files
 - Configured SPA routing with rewrites for client-side routing
-- Build command: `vite build`, Output: `dist/public`
-- Created deployment documentation in `DEPLOY.md`
-- Ready for static deployment on Vercel
+- Created `vite.config.prod.ts` for production builds
+- Fixed CSS issues with custom Tailwind classes (removed `border-border`, `bg-background`)
+- Build command: `NODE_ENV=production npx vite build --config vite.config.prod.ts --mode production`
+- Output: `dist/public`
+- Created alternative configuration `vercel-alternative.json` for backup
+- Updated `DEPLOY.md` with multiple deployment options and troubleshooting
+- Ready for static deployment on Vercel with fallback configurations
 
 ## Changelog
 - July 04, 2025. Initial setup

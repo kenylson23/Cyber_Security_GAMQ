@@ -1,8 +1,11 @@
 {
-  "buildCommand": "vite build",
+  "buildCommand": "NODE_ENV=production npx vite build --config vite.config.prod.ts --mode production",
   "outputDirectory": "dist/public",
+  "installCommand": "npm install",
+  "framework": null,
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {},
   "rewrites": [
     {
       "source": "/(.*)",
