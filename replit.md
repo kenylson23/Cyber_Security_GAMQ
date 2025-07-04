@@ -75,19 +75,20 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 
 ## Deployment Strategy
 
-### Build Process
+### Netlify Build Process
 1. **Frontend**: Vite builds React app to `dist/public`
-2. **Backend**: esbuild bundles server code to `dist/index.js`
-3. **Database**: Drizzle migrations applied via `npm run db:push`
+2. **Static Deployment**: Files served directly from CDN
+3. **SPA Routing**: Client-side routing with redirects
 
-### Environment Variables
-- `DATABASE_URL`: PostgreSQL connection string (required)
-- `NODE_ENV`: Environment mode (development/production)
+### Build Configuration
+- **Build Command**: `cd client && npx vite build --config ../vite.config.fast.ts --mode production`
+- **Publish Directory**: `dist/public`
+- **Node Version**: 18
 
 ### Production Deployment
-- Static files served from `dist/public`
-- Express server runs on Node.js
-- Database hosted on Neon (serverless PostgreSQL)
+- Static files served from Netlify CDN
+- Client-side routing configured with `_redirects`
+- Optimized caching for assets
 
 ## Recent Changes
 
@@ -102,11 +103,23 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 - Mobile-first layout with reordered elements for better UX
 - Touch-friendly controls and interaction feedback
 
+### Netlify Deploy Configuration (July 04, 2025)
+- Created `netlify.toml` with optimized build configuration
+- Added `vite.config.netlify.ts` and `vite.config.fast.ts` for different build scenarios
+- Configured SPA routing with `_redirects` file
+- Added `.nvmrc` for Node.js version management
+- Created `build-netlify.sh` script for local testing
+- Optimized chunking and caching for better performance
+- Build command: `cd client && npx vite build --config ../vite.config.fast.ts --mode production`
+- Publish directory: `dist/public`
+- Ready for static deployment on Netlify CDN
+
 
 
 ## Changelog
 - July 04, 2025. Initial setup
 - July 04, 2025. Added Security Simulator 3D feature
+- July 04, 2025. Configured for Netlify static deployment
 
 ## User Preferences
 
