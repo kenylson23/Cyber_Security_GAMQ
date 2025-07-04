@@ -13,7 +13,7 @@ export VITE_NODE_ENV=production
 
 # Execute o build (a partir da raiz do projeto)
 echo "⚡ Executando build do Vite..."
-npx vite build --config vite.config.minimal.ts --mode production
+npx vite build --config vite.config.turbo.ts --mode production
 
 # Verificar se o build foi bem-sucedido
 if [ $? -eq 0 ]; then

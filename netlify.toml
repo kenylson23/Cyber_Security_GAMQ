@@ -1,6 +1,6 @@
 [build]
   publish = "dist/public"
-  command = "npx vite build --config vite.config.minimal.ts --mode production"
+  command = "npx vite build --config vite.config.turbo.ts --mode production"
 
 [build.environment]
   NODE_VERSION = "18"

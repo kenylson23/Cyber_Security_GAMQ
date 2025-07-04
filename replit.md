@@ -81,9 +81,10 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 3. **SPA Routing**: Client-side routing with redirects
 
 ### Build Configuration
-- **Build Command**: `npx vite build --config vite.config.minimal.ts --mode production`
+- **Build Command**: `npx vite build --config vite.config.turbo.ts --mode production`
 - **Publish Directory**: `dist/public`
 - **Node Version**: 18
+- **JavaScript Target**: ES2020 (suporte para BigInt)
 
 ### Production Deployment
 - Static files served from Netlify CDN
@@ -110,10 +111,12 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 - Added `.nvmrc` for Node.js version management
 - Created `build-netlify.sh` script for local testing
 - Optimized chunking and caching for better performance
-- Build command: `npx vite build --config vite.config.minimal.ts --mode production`
+- Build command: `npx vite build --config vite.config.turbo.ts --mode production`
 - Publish directory: `dist/public`
 - Fixed "client/index.html not found" issue with proper path configuration
-- Created multiple Vite configs for different build scenarios
+- Fixed BigInt literals error by updating target from ES2015 to ES2020
+- Created multiple Vite configs for different build scenarios (turbo, minimal, fast, netlify)
+- Ultra-optimized build configuration for faster deployment
 - Ready for static deployment on Netlify CDN
 
 

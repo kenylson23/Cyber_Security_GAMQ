@@ -38,7 +38,7 @@ export default defineConfig({
     'global': 'globalThis',
   },
   esbuild: {
-    target: 'es2015',
+    target: 'es2020',
     drop: ['console', 'debugger']
   }
 });

@@ -1,10 +1,16 @@
 # Solução: Problema "client/index.html" não encontrado
 
-## Problema Identificado
+## Problemas Identificados
+
+### 1. Problema de Path
 O erro indica que o build não conseguiu encontrar o módulo de entrada `client/index.html`.
 
-## Causa Raiz
-Problema de configuração nos caminhos do Vite quando executado no ambiente do Netlify.
+### 2. Problema de BigInt (ES2015)
+Erro: "Big integer literals are not available in the configured target environment (es2015)"
+
+## Causas Raiz
+1. Problema de configuração nos caminhos do Vite quando executado no ambiente do Netlify
+2. Target JavaScript muito antigo (es2015) não suporta BigInt literals usados pelas dependências modernas
 
 ## Solução Implementada
 
@@ -34,9 +40,10 @@ projeto/
 
 ### 3. Configurações Otimizadas
 - **Minificação**: esbuild (mais rápido que terser)
-- **Target**: es2015 (compatibilidade)
+- **Target**: es2020 (suporte para BigInt e features modernas)
 - **Chunks**: Inline dinâmico (reduz complexidade)
 - **Sourcemap**: Desabilitado (build mais rápido)
+- **BigInt Support**: Habilitado via target es2020
 
 ## Como Resolver no Netlify
 
@@ -61,9 +68,10 @@ Execute o script para verificar se o build funciona:
 
 ## Arquivos de Configuração Disponíveis
 
-1. **`vite.config.minimal.ts`** - Configuração principal (recomendada)
-2. **`vite.config.fast.ts`** - Configuração sem minificação
-3. **`vite.config.netlify.ts`** - Configuração com chunking manual
+1. **`vite.config.turbo.ts`** - Ultra-rápida, sem minificação (recomendada)
+2. **`vite.config.minimal.ts`** - Configuração equilibrada
+3. **`vite.config.fast.ts`** - Configuração básica
+4. **`vite.config.netlify.ts`** - Configuração com chunking manual
 
 ## Verificações Pós-Deploy
 

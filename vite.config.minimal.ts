@@ -20,7 +20,7 @@ export default defineConfig({
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,
-    target: 'es2015',
+    target: 'es2020',
     chunkSizeWarningLimit: 5000,
     rollupOptions: {
       output: {
@@ -28,6 +28,9 @@ export default defineConfig({
         inlineDynamicImports: true
       }
     }
+  },
+  esbuild: {
+    target: 'es2020'
   },
   define: {
     'process.env.NODE_ENV': '"production"',

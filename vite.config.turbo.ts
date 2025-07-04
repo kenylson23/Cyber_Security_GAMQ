@@ -20,15 +20,23 @@ export default defineConfig({
     emptyOutDir: true,
     minify: false,
     sourcemap: false,
-    chunkSizeWarningLimit: 3000,
+    target: 'es2020',
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 10000,
     rollupOptions: {
       output: {
-        manualChunks: undefined
+        manualChunks: undefined,
+        inlineDynamicImports: true
       }
     }
   },
   esbuild: {
-    target: 'es2020'
+    target: 'es2020',
+    tsconfigRaw: {
+      compilerOptions: {
+        target: 'es2020'
+      }
+    }
   },
   define: {
     'process.env.NODE_ENV': '"production"',
