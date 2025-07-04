@@ -18,22 +18,12 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
-    chunkSizeWarningLimit: 2000,
-    minify: 'terser',
+    minify: false,
+    sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-button', '@radix-ui/react-form'],
-          motion: ['framer-motion'],
-          three: ['three'],
-          icons: ['lucide-react'],
-          query: ['@tanstack/react-query']
-        }
+        manualChunks: undefined
       }
     }
-  },
-  define: {
-    'process.env.NODE_ENV': '"production"'
   }
 });

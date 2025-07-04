@@ -94,9 +94,41 @@ Se a primeira opção falhar:
    - Install Command: `npm install`
    - Node.js Version: 18.x
 
+### Se o build continuar com timeout (Command exited with 1):
+
+**PROBLEMA**: Build muito lento devido ao tamanho das dependências (Three.js, Lucide Icons, etc.)
+
+**SOLUÇÕES CRIADAS**:
+
+**Opção 4: Configuração Otimizada (vercel-final.json)**
+Configuração mais simples e rápida:
+```json
+{
+  "buildCommand": "cd client && npx vite build --config ../vite.config.minimal.ts --mode production",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install --production=false",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+**Opção 5: Build Script Custom**
+Use o script `build-vercel.sh` para build otimizado com timeout.
+
+**Arquivos de configuração disponíveis:**
+- `vite.config.minimal.ts` - Configuração ultra-otimizada
+- `vite.config.simple.ts` - Configuração sem minificação
+- `vite.config.prod.ts` - Configuração com chunking manual
+- `build-vercel.sh` - Script bash com timeout
+
 ### Verificações Gerais:
 - Node version no Vercel (usar 18.x ou superior)
 - Variáveis de ambiente se necessário
 - Logs de build no dashboard do Vercel
-- Certificar que o arquivo `.vercelignore` está presenteashboard do Vercel
+- Certificar que o arquivo `.vercelignore` está presente
+- Timeout no build: usar configuração minimal ou simpleashboard do Vercel
 - Se persistir erro, usar configuração manual
