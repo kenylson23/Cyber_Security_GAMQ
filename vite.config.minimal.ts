@@ -18,17 +18,16 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
-    minify: false,
+    minify: 'esbuild',
     sourcemap: false,
-    chunkSizeWarningLimit: 3000,
+    target: 'es2015',
+    chunkSizeWarningLimit: 5000,
     rollupOptions: {
       output: {
-        manualChunks: undefined
+        manualChunks: undefined,
+        inlineDynamicImports: true
       }
     }
-  },
-  esbuild: {
-    target: 'es2015'
   },
   define: {
     'process.env.NODE_ENV': '"production"',
