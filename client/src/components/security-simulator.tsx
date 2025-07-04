@@ -60,12 +60,17 @@ export default function SecuritySimulator() {
   useEffect(() => {
     if (!mountRef.current || !inView) return;
 
+    // Get container dimensions for responsive sizing
+    const container = mountRef.current;
+    const containerWidth = container.clientWidth;
+    const containerHeight = window.innerWidth < 768 ? 300 : 500; // Smaller height on mobile
+
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 800 / 500, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, containerWidth / containerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     
-    renderer.setSize(800, 500);
+    renderer.setSize(containerWidth, containerHeight);
     renderer.setClearColor(0x000000, 0.1);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -107,8 +112,21 @@ export default function SecuritySimulator() {
     
     animate();
 
+    // Handle window resize for responsiveness
+    const handleResize = () => {
+      if (!mountRef.current) return;
+      const newWidth = mountRef.current.clientWidth;
+      const newHeight = window.innerWidth < 768 ? 300 : 500;
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(newWidth, newHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
     // Cleanup
     return () => {
+      window.removeEventListener('resize', handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -391,12 +409,12 @@ export default function SecuritySimulator() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* 3D Simulator */}
-          <div className="xl:col-span-2">
+          <div className="lg:col-span-2 order-2 lg:order-1">
             <Card className="simulator-card p-4">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-orbitron font-bold text-gold">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3 sm:gap-0">
+                <h3 className="text-lg md:text-xl font-orbitron font-bold text-gold">
                   Ambiente Simulado
                 </h3>
                 <div className="flex space-x-2">
@@ -418,40 +436,41 @@ export default function SecuritySimulator() {
               </div>
               <div 
                 ref={mountRef} 
-                className="w-full h-[500px] bg-black-deep rounded-lg border border-gold/30 overflow-hidden simulator-3d-container"
+                className="w-full h-[300px] md:h-[500px] bg-black-deep rounded-lg border border-gold/30 overflow-hidden simulator-3d-container"
               />
             </Card>
           </div>
 
           {/* Control Panel */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-orbitron font-bold text-gold mb-4">
+          <div className="space-y-4 order-1 lg:order-2">
+            <h3 className="text-lg md:text-xl font-orbitron font-bold text-gold mb-4">
               Sistemas de Segurança
             </h3>
             
             {securitySystems.map((system) => (
               <Card
                 key={system.id}
-                className={`p-4 cursor-pointer transition-all duration-300 simulator-card ${
+                className={`p-3 md:p-4 cursor-pointer transition-all duration-300 simulator-card ${
                   activeSystem === system.id
                     ? 'simulator-active'
                     : ''
                 }`}
                 onClick={() => setActiveSystem(system.id)}
+                onTouchStart={() => {}} // Enable touch feedback
               >
                 <div className="flex items-start space-x-3">
-                  <div className={`p-2 rounded-lg ${
+                  <div className={`p-2 rounded-lg flex-shrink-0 ${
                     activeSystem === system.id ? 'bg-gold text-black' : 'bg-gray-tech text-gold'
                   }`}>
-                    <system.icon className="w-5 h-5" />
+                    <system.icon className="w-4 h-4 md:w-5 md:h-5" />
                   </div>
-                  <div className="flex-1">
-                    <h4 className={`font-orbitron font-bold mb-1 ${
+                  <div className="flex-1 min-w-0">
+                    <h4 className={`font-orbitron font-bold mb-1 text-sm md:text-base ${
                       activeSystem === system.id ? 'text-gold' : 'text-white'
                     }`}>
                       {system.name}
                     </h4>
-                    <p className="text-sm text-gray-300">
+                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
                       {system.description}
                     </p>
                   </div>
@@ -459,26 +478,26 @@ export default function SecuritySimulator() {
               </Card>
             ))}
 
-            <Card className="bg-black-medium border-gold/30 p-4 mt-6">
-              <h4 className="font-orbitron font-bold text-gold mb-2">
+            <Card className="bg-black-medium border-gold/30 p-3 md:p-4 mt-6">
+              <h4 className="font-orbitron font-bold text-gold mb-2 text-sm md:text-base">
                 Como Usar
               </h4>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Clique nos sistemas para ativá-los</li>
+              <ul className="text-xs md:text-sm text-gray-300 space-y-1">
+                <li>• Toque nos sistemas para ativá-los</li>
                 <li>• Use ⏸️ para pausar a animação</li>
                 <li>• Use 🔄 para resetar a visualização</li>
-                <li>• Observe as áreas de cobertura</li>
+                <li>• Observe as áreas de cobertura em 3D</li>
               </ul>
             </Card>
           </div>
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-300 mb-6">
+          <p className="text-sm md:text-base text-gray-300 mb-6">
             Interessado em implementar estes sistemas? Entre em contato conosco!
           </p>
           <Button 
-            className="bg-gold text-black px-8 py-3 font-rajdhani font-bold text-lg hover-3d animate-glow"
+            className="bg-gold text-black px-6 md:px-8 py-3 font-rajdhani font-bold text-base md:text-lg hover-3d animate-glow w-full sm:w-auto"
             onClick={() => {
               const element = document.getElementById("contact");
               if (element) {

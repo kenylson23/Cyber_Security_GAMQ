@@ -243,4 +243,41 @@
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
   }
+
+  /* Mobile optimizations for simulator */
+  @media (max-width: 768px) {
+    .simulator-card {
+      padding: 1rem;
+    }
+    
+    .simulator-3d-container {
+      min-height: 300px;
+    }
+    
+    .control-button {
+      padding: 0.5rem;
+    }
+    
+    .simulator-active {
+      transform: scale(1.02);
+    }
+  }
+
+  /* Touch device optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    .hover-3d:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .simulator-card:hover {
+      transform: scale(1.02);
+    }
+    
+    .control-button:hover {
+      transform: none;
+      background: var(--gold);
+      color: black;
+    }
+  }
 }
