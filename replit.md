@@ -31,11 +31,12 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 1. **Hero Section**: Interactive landing area with 3D elements
 2. **Services Section**: Showcases four main service categories
 3. **About Section**: Company information with feature highlights
-4. **Projects Section**: Portfolio of completed projects
-5. **Contact Section**: Contact form with validation
-6. **Stats Section**: Animated statistics counters
-7. **Navigation**: Responsive navigation with smooth scrolling
-8. **Footer**: Company information and social links
+4. **Security Simulator**: Interactive 3D simulator showcasing security systems
+5. **Projects Section**: Portfolio of completed projects
+6. **Contact Section**: Contact form with validation
+7. **Stats Section**: Animated statistics counters
+8. **Navigation**: Responsive navigation with smooth scrolling
+9. **Footer**: Company information and social links
 
 ### Backend Components
 1. **API Routes**: Contact form submission and data retrieval
@@ -88,8 +89,18 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 - Express server runs on Node.js
 - Database hosted on Neon (serverless PostgreSQL)
 
+## Recent Changes
+
+### Security Simulator Implementation (July 04, 2025)
+- Added interactive 3D security simulator using Three.js
+- Features 4 security systems: CFTV, Motion Sensors, Access Control, Wireless Network
+- Includes real-time animations, system switching, and control panel
+- Added navigation menu item for easy access
+- Custom CSS styling for enhanced visual effects
+
 ## Changelog
 - July 04, 2025. Initial setup
+- July 04, 2025. Added Security Simulator 3D feature
 
 ## User Preferences
 

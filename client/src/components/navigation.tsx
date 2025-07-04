@@ -44,6 +44,12 @@ export default function Navigation() {
               Sobre
             </button>
             <button
+              onClick={() => scrollToSection("simulator")}
+              className="hover:text-gold transition-colors"
+            >
+              Simulador
+            </button>
+            <button
               onClick={() => scrollToSection("projects")}
               className="hover:text-gold transition-colors"
             >
@@ -86,6 +92,12 @@ export default function Navigation() {
               className="block w-full text-left hover:text-gold transition-colors"
             >
               Sobre
+            </button>
+            <button
+              onClick={() => scrollToSection("simulator")}
+              className="block w-full text-left hover:text-gold transition-colors"
+            >
+              Simulador
             </button>
             <button
               onClick={() => scrollToSection("projects")}
