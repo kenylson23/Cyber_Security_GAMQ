@@ -102,9 +102,18 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 - Mobile-first layout with reordered elements for better UX
 - Touch-friendly controls and interaction feedback
 
+### Vercel Deploy Configuration (July 04, 2025)
+- Created `vercel.json` with static build configuration
+- Added `.vercelignore` to exclude unnecessary files
+- Configured SPA routing with rewrites for client-side routing
+- Build command: `vite build`, Output: `dist/public`
+- Created deployment documentation in `DEPLOY.md`
+- Ready for static deployment on Vercel
+
 ## Changelog
 - July 04, 2025. Initial setup
 - July 04, 2025. Added Security Simulator 3D feature
+- July 04, 2025. Configured for Vercel static deployment
 
 ## User Preferences
 
