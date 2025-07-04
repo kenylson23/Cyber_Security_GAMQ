@@ -1,4 +1,0 @@
-{
-  "buildCommand": "cd client && npx vite build --outDir ../dist/public --emptyOutDir",
-  "outputDirectory": "dist/public"
-}
