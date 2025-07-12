@@ -88,9 +88,8 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-xl font-orbitron font-bold mb-2 text-gold">Endereço</h3>
                 <p className="text-gray-300">
-                  Rua da Tecnologia, 123<br />
-                  Bairro Tech, Cidade - Estado<br />
-                  CEP: 12345-678
+                  Viana-Estalagem sentido Cacuaco junto a margem<br />
+                  Luanda, Angola
                 </p>
               </div>
             </div>

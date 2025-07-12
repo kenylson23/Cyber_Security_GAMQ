@@ -30,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-300 text-sm">
               <li>(11) 9999-9999</li>
               <li>contato@gamq.com</li>
-              <li>Rua da Tecnologia, 123</li>
+              <li>Viana-Estalagem sentido Cacuaco junto a margem</li>
             </ul>
           </div>
           
@@ -55,7 +55,7 @@ export default function Footer() {
         
         <div className="border-t border-gold mt-8 pt-8 text-center">
           <p className="text-gray-300 text-sm">
-            © 2024 Kenylson-Tech. Todos os direitos reservados.
+            © 2024 G.A.M.Q. Todos os direitos reservados.
           </p>
         </div>
       </div>

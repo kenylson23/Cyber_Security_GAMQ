@@ -127,6 +127,8 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 04, 2025. Configured for Netlify static deployment
 - July 12, 2025. Updated company name from "Kenylson-Tech" to "G.A.M.Q"
 - July 12, 2025. Updated services to focus on: Venda, Instalação, Manutenção de Equipamentos de Segurança Eletrônica, e Electricidade
+- July 12, 2025. Added real company images to all services and projects sections
+- July 12, 2025. Updated company address to "Viana-Estalagem sentido Cacuaco junto a margem"
 
 ## User Preferences
 
