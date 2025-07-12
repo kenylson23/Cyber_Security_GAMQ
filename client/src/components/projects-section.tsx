@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
 
 const projects = [
   {
     title: "Montagem de Cerca Eléctrica",
     description: "Instalação completa de cerca eléctrica para segurança perimetral residencial e comercial",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    image: electricFenceImage,
     tags: ["Cerca Eléctrica", "Perímetro"]
   },
   {
