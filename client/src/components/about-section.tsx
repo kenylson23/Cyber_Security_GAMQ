@@ -35,7 +35,7 @@ export default function AboutSection() {
             </h2>
             <p className="text-lg text-gray-300 mb-6">
               Somos uma empresa especializada em equipamentos de segurança eletrônica, oferecendo venda, 
-              instalação, manutenção e serviços elétricos. Com experiência no mercado, 
+              instalação, manutenção de equipamentos de segurança eletrônica e serviços elétricos. Com experiência no mercado, 
               oferecemos soluções de alta qualidade e suporte técnico especializado.
             </p>
             <div className="space-y-4">

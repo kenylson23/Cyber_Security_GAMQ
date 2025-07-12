@@ -20,7 +20,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-300 text-sm">
               <li><a href="#services" className="hover:text-gold">Venda</a></li>
               <li><a href="#services" className="hover:text-gold">Instalação</a></li>
-              <li><a href="#services" className="hover:text-gold">Manutenção</a></li>
+              <li><a href="#services" className="hover:text-gold">Manutenção de Equipamentos</a></li>
               <li><a href="#services" className="hover:text-gold">Electricidade</a></li>
             </ul>
           </div>

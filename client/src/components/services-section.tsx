@@ -17,7 +17,7 @@ const services = [
   },
   {
     icon: Settings,
-    title: "Manutenção",
+    title: "Manutenção de Equipamentos de Segurança Eletrônica",
     description: "Manutenção preventiva e corretiva de equipamentos de segurança eletrônica",
     image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
