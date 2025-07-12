@@ -34,9 +34,9 @@ export default function AboutSection() {
               SOBRE A G.A.M.Q
             </h2>
             <p className="text-lg text-gray-300 mb-6">
-              Somos uma empresa líder em soluções tecnológicas avançadas, especializada em segurança eletrônica, 
-              infraestrutura de TI e cyber segurança. Com mais de uma década de experiência no mercado, 
-              oferecemos serviços de alta qualidade e inovação.
+              Somos uma empresa especializada em equipamentos de segurança eletrônica, oferecendo venda, 
+              instalação, manutenção e serviços elétricos. Com experiência no mercado, 
+              oferecemos soluções de alta qualidade e suporte técnico especializado.
             </p>
             <div className="space-y-4">
               {features.map((feature, index) => (

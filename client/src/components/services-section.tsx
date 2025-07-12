@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { Video, Server, Shield, Network } from "lucide-react";
+import { ShoppingCart, Wrench, Settings, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const services = [
   {
-    icon: Video,
-    title: "Segurança Eletrônica",
-    description: "Sistemas de CFTV, alarmes, controle de acesso e monitoramento 24/7",
+    icon: ShoppingCart,
+    title: "Venda",
+    description: "Comercialização de equipamentos de segurança eletrônica das melhores marcas",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
   {
-    icon: Server,
-    title: "Informática",
-    description: "Infraestrutura de TI, redes, servidores e suporte técnico especializado",
+    icon: Wrench,
+    title: "Instalação",
+    description: "Instalação profissional de sistemas de segurança eletrônica e equipamentos",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
   {
-    icon: Shield,
-    title: "Cyber Segurança",
-    description: "Proteção contra ameaças digitais, firewall e segurança de dados",
+    icon: Settings,
+    title: "Manutenção",
+    description: "Manutenção preventiva e corretiva de equipamentos de segurança eletrônica",
     image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
   {
-    icon: Network,
-    title: "Projetos",
-    description: "Desenvolvimento de projetos personalizados e consultoria tecnológica",
+    icon: Zap,
+    title: "Electricidade",
+    description: "Serviços elétricos especializados para instalações de segurança eletrônica",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   }
 ];
@@ -45,7 +45,7 @@ export default function ServicesSection() {
             NOSSOS SERVIÇOS
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Soluções tecnológicas avançadas para sua segurança e proteção digital
+            Equipamentos de segurança eletrônica com venda, instalação, manutenção e serviços elétricos
           </p>
         </div>
         

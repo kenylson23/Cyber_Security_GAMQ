@@ -38,7 +38,7 @@ export default function HeroSection() {
             <span className="text-gold">G.A.M.Q</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
-            Segurança Eletrônica • Informática • Ciber-Segurança • Projetos
+            Venda • Instalação • Manutenção • Electricidade
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button

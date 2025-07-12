@@ -126,6 +126,7 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 04, 2025. Added Security Simulator 3D feature
 - July 04, 2025. Configured for Netlify static deployment
 - July 12, 2025. Updated company name from "Kenylson-Tech" to "G.A.M.Q"
+- July 12, 2025. Updated services to focus on: Venda, Instalação, Manutenção de Equipamentos de Segurança Eletrônica, e Electricidade
 
 ## User Preferences
 
