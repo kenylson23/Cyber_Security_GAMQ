@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import technicianImage from "@assets/IMG_20250322_131457_1752352079117.jpg";
 
 const features = [
   "Tecnologia de ponta e soluções personalizadas",
@@ -23,7 +24,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="@assets/IMG_20250322_131457_1752352079117.jpg"
+              src={technicianImage}
               alt="Técnico da G.A.M.Q trabalhando com equipamentos de segurança eletrônica"
               className="rounded-xl shadow-2xl hover-3d"
             />
