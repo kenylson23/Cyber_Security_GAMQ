@@ -3,22 +3,22 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const projects = [
   {
-    title: "Sistema Corporativo",
-    description: "Implementação completa de segurança eletrônica para complexo empresarial",
+    title: "Montagem de Cerca Eléctrica",
+    description: "Instalação completa de cerca eléctrica para segurança perimetral residencial e comercial",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["CFTV", "Alarmes"]
+    tags: ["Cerca Eléctrica", "Perímetro"]
   },
   {
-    title: "Data Center",
-    description: "Infraestrutura completa de TI com redundância e alta disponibilidade",
+    title: "Portões Automatizados",
+    description: "Automação de portões residenciais e comerciais com controle remoto e sistemas de segurança",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Servidores", "Rede"]
+    tags: ["Automação", "Portões"]
   },
   {
-    title: "Cyber Defesa",
-    description: "Sistema avançado de proteção contra ameaças digitais",
+    title: "Sistema de Vigilância",
+    description: "Implementação de sistemas CFTV com câmeras de alta definição e monitoramento 24/7",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Firewall", "SOC"]
+    tags: ["CFTV", "Vigilância"]
   }
 ];
 
@@ -38,7 +38,7 @@ export default function ProjectsSection() {
             NOSSOS PROJETOS
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Conheça alguns dos projetos que desenvolvemos com excelência e inovação
+            Conheça nossos principais projetos em segurança electrônica e automação
           </p>
         </div>
         
