@@ -23,8 +23,8 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-              alt="Modern tech office"
+              src="@assets/IMG_20250322_131457_1752352079117.jpg"
+              alt="Técnico da G.A.M.Q trabalhando com equipamentos de segurança eletrônica"
               className="rounded-xl shadow-2xl hover-3d"
             />
           </div>
