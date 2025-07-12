@@ -6,25 +6,25 @@ const services = [
   {
     icon: ShoppingCart,
     title: "Venda",
-    description: "Comercialização de equipamentos de segurança eletrônica das melhores marcas",
+    description: "Comercialização de equipamentos de segurança electrônica das melhores marcas",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
   {
     icon: Wrench,
     title: "Instalação",
-    description: "Instalação profissional de sistemas de segurança eletrônica e equipamentos",
+    description: "Instalação profissional de sistemas de segurança electrônica e equipamentos",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
   {
     icon: Settings,
-    title: "Manutenção de Equipamentos de Segurança Eletrônica",
-    description: "Manutenção preventiva e corretiva de equipamentos de segurança eletrônica",
+    title: "Manutenção de Equipamentos de Segurança Electrônica",
+    description: "Manutenção preventiva e corretiva de equipamentos de segurança electrônica",
     image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
   {
     icon: Zap,
     title: "Electricidade",
-    description: "Serviços elétricos especializados para instalações de segurança eletrônica",
+    description: "Serviços elétricos especializados para instalações de segurança electrônica",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   }
 ];
@@ -45,7 +45,7 @@ export default function ServicesSection() {
             NOSSOS SERVIÇOS
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Equipamentos de segurança eletrônica com venda, instalação, manutenção e serviços elétricos
+            Equipamentos de segurança electrônica com venda, instalação, manutenção e serviços elétricos
           </p>
         </div>
         
