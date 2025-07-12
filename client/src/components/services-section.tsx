@@ -4,13 +4,14 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jpg";
 import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg";
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
+import salesTeamImage from "@assets/IMG_20250322_162658_1752355169600.jpg";
 
 const services = [
   {
     icon: ShoppingCart,
     title: "Venda",
     description: "Comercialização de equipamentos de segurança electrônica das melhores marcas",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    image: salesTeamImage
   },
   {
     icon: Wrench,
