@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
 import automaticGatesImage from "@assets/IMG_20250322_162658_1752355633154.jpg";
+import surveillanceSystemImage from "@assets/IMG_20250321_173542_1752356189979.jpg";
 
 const projects = [
   {
@@ -19,7 +20,7 @@ const projects = [
   {
     title: "Sistema de Vigilância",
     description: "Implementação de sistemas CFTV com câmeras de alta definição e monitoramento 24/7",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    image: surveillanceSystemImage,
     tags: ["CFTV", "Vigilância"]
   }
 ];
