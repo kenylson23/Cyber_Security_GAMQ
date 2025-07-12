@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ShoppingCart, Wrench, Settings, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import OptimizedImage from "@/components/optimized-image";
 import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jpg";
 import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg";
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
@@ -60,12 +61,15 @@ export default function ServicesSection() {
               initial={{ y: 50, opacity: 0 }}
               animate={inView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-              className="service-card rounded-xl p-6 hover-3d tech-border"
+              className="service-card rounded-xl p-6 hover-3d tech-border transform-gpu hover-optimized"
             >
-              <img
+              <OptimizedImage
                 src={service.image}
                 alt={service.title}
                 className="w-full h-48 object-cover rounded-lg mb-4"
+                loading="lazy"
+                width={400}
+                height={300}
               />
               <div className="text-center">
                 <service.icon className="text-gold text-3xl mb-4 mx-auto" />

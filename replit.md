@@ -93,6 +93,18 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 
 ## Recent Changes
 
+### Performance Optimization (July 12, 2025)
+- Implemented lazy loading for Three.js scene and Security Simulator
+- Added optimized image component with intersection observer
+- Enhanced scroll animations with rootMargin for better UX
+- Reduced Three.js object count based on screen size (mobile: 50% fewer objects)
+- Added frame rate throttling and performance monitoring
+- Implemented GPU acceleration for transforms and animations
+- Added performance CSS with hardware acceleration classes
+- Memory management with proper disposal of Three.js objects
+- Debounced resize handlers to prevent performance issues
+- Added performance monitoring hook for development
+
 ### Security Simulator Implementation (July 04, 2025)
 - Added interactive 3D security simulator using Three.js
 - Features 4 security systems: CFTV, Motion Sensors, Access Control, Wireless Network

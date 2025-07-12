@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ThreeScene from "./three-scene";
+import LazyThreeScene from "./lazy-three-scene";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export default function HeroSection() {
@@ -23,9 +23,9 @@ export default function HeroSection() {
     <section
       id="home"
       ref={ref}
-      className="min-h-screen flex items-center justify-center relative hero-bg cyber-grid"
+      className="min-h-screen flex items-center justify-center relative hero-bg cyber-grid gpu-accelerated"
     >
-      <ThreeScene />
+      <LazyThreeScene />
       
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}

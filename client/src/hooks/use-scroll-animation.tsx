@@ -7,20 +7,23 @@ export function useScrollAnimation(threshold = 0.1) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setInView(true);
+          // Disconnect after first intersection for better performance
+          observer.disconnect();
+        }
       },
-      { threshold }
+      { 
+        threshold,
+        rootMargin: '50px' // Trigger slightly before element enters viewport
+      }
     );
 
     if (ref.current) {
       observer.observe(ref.current);
     }
 
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
+    return () => observer.disconnect();
   }, [threshold]);
 
   return { ref, inView };

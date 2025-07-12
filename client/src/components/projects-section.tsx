@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import OptimizedImage from "@/components/optimized-image";
 import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
 import automaticGatesImage from "@assets/IMG_20250322_162658_1752355633154.jpg";
 import surveillanceSystemImage from "@assets/IMG_20250321_173542_1752356189979.jpg";
@@ -52,12 +53,15 @@ export default function ProjectsSection() {
               initial={{ y: 50, opacity: 0 }}
               animate={inView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-              className="project-card bg-black-medium rounded-xl overflow-hidden hover-3d tech-border"
+              className="project-card bg-black-medium rounded-xl overflow-hidden hover-3d tech-border transform-gpu hover-optimized"
             >
-              <img
+              <OptimizedImage
                 src={project.image}
                 alt={project.title}
                 className="w-full h-48 object-cover"
+                loading="lazy"
+                width={400}
+                height={300}
               />
               <div className="p-6">
                 <h3 className="text-xl font-orbitron font-bold mb-3 text-gold">
