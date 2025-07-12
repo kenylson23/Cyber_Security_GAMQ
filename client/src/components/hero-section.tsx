@@ -35,8 +35,7 @@ export default function HeroSection() {
       >
         <div className="animate-float">
           <h1 className="text-4xl md:text-7xl font-orbitron font-bold mb-6 text-shadow-gold">
-            <span className="text-gold">KENYLSON</span>
-            <span className="text-white">-TECH</span>
+            <span className="text-gold">G.A.M.Q</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
             Segurança Eletrônica • Informática • Ciber-Segurança • Projetos
