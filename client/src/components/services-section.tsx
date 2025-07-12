@@ -10,7 +10,7 @@ const services = [
     icon: ShoppingCart,
     title: "Venda",
     description: "Comercialização de equipamentos de segurança electrônica das melhores marcas",
-    image: securityInstallationImage
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
   {
     icon: Wrench,
@@ -28,7 +28,7 @@ const services = [
     icon: Zap,
     title: "Electricidade",
     description: "Serviços elétricos especializados para instalações de segurança electrônica",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    image: securityInstallationImage
   }
 ];
 
