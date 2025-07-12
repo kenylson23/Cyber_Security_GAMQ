@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ShoppingCart, Wrench, Settings, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jpg";
+import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg";
 
 const services = [
   {
@@ -20,7 +21,7 @@ const services = [
     icon: Settings,
     title: "Manutenção de Equipamentos de Segurança Electrônica",
     description: "Manutenção preventiva e corretiva de equipamentos de segurança electrônica",
-    image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    image: installationTeamImage
   },
   {
     icon: Zap,
