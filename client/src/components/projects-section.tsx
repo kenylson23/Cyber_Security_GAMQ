@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
+import automaticGatesImage from "@assets/IMG_20250322_162658_1752355633154.jpg";
 
 const projects = [
   {
@@ -12,7 +13,7 @@ const projects = [
   {
     title: "Portões Automatizados",
     description: "Automação de portões residenciais e comerciais com controle remoto e sistemas de segurança",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    image: automaticGatesImage,
     tags: ["Automação", "Portões"]
   },
   {
