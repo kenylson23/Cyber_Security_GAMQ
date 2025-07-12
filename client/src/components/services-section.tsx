@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ShoppingCart, Wrench, Settings, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jpg";
 
 const services = [
   {
@@ -13,7 +14,7 @@ const services = [
     icon: Wrench,
     title: "Instalação",
     description: "Instalação profissional de sistemas de segurança electrônica e equipamentos",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    image: technicianWorkingImage
   },
   {
     icon: Settings,
