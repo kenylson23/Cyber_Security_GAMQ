@@ -30,7 +30,7 @@ export default function AboutSection() {
           </div>
           <div>
             <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-gold">
-              SOBRE A KENYLSON-TECH
+              SOBRE A G.A.M.Q
             </h2>
             <p className="text-lg text-gray-300 mb-6">
               Somos uma empresa líder em soluções tecnológicas avançadas, especializada em segurança eletrônica, 

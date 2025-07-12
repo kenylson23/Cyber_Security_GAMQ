@@ -1,8 +1,8 @@
-# Kenylson-Tech - Electronic Security & Technology Solutions
+# G.A.M.Q - Electronic Security & Technology Solutions
 
 ## Overview
 
-This is a modern full-stack web application for Kenylson-Tech, a technology company specializing in electronic security, IT infrastructure, and cybersecurity solutions. The application features a sleek, modern design with interactive 3D elements and smooth animations, built using React, TypeScript, and Express.js.
+This is a modern full-stack web application for G.A.M.Q, a technology company specializing in electronic security, IT infrastructure, and cybersecurity solutions. The application features a sleek, modern design with interactive 3D elements and smooth animations, built using React, TypeScript, and Express.js.
 
 ## System Architecture
 
@@ -125,6 +125,7 @@ This is a modern full-stack web application for Kenylson-Tech, a technology comp
 - July 04, 2025. Initial setup
 - July 04, 2025. Added Security Simulator 3D feature
 - July 04, 2025. Configured for Netlify static deployment
+- July 12, 2025. Updated company name from "Kenylson-Tech" to "G.A.M.Q"
 
 ## User Preferences
 

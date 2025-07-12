@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Shield className="text-gold text-2xl" />
-              <span className="text-xl font-orbitron font-bold text-gold">Kenylson-Tech</span>
+              <span className="text-xl font-orbitron font-bold text-gold">G.A.M.Q</span>
             </div>
             <p className="text-gray-300 text-sm">
               Soluções tecnológicas avançadas para sua segurança e proteção digital.
@@ -29,7 +29,7 @@ export default function Footer() {
             <h3 className="text-gold font-orbitron font-bold mb-4">Contato</h3>
             <ul className="space-y-2 text-gray-300 text-sm">
               <li>(11) 9999-9999</li>
-              <li>contato@kenylson-tech.com</li>
+              <li>contato@gamq.com</li>
               <li>Rua da Tecnologia, 123</li>
             </ul>
           </div>

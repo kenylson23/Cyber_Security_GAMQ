@@ -115,8 +115,8 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-xl font-orbitron font-bold mb-2 text-gold">Email</h3>
                 <p className="text-gray-300">
-                  contato@kenylson-tech.com<br />
-                  vendas@kenylson-tech.com
+                  contato@gamq.com<br />
+                  vendas@gamq.com
                 </p>
               </div>
             </div>

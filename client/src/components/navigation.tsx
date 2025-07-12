@@ -19,7 +19,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-2">
             <Shield className="text-gold text-2xl" />
             <span className="text-xl font-orbitron font-bold text-gold">
-              Kenylson-Tech
+              G.A.M.Q
             </span>
           </div>
           
