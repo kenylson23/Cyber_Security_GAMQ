@@ -82,13 +82,17 @@ export default function ImageCarousel({
       intervalRef.current = null;
     }
 
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, autoPlayInterval);
+    // Add delay to ensure DOM has updated
+    const timeoutId = setTimeout(() => {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+      }, autoPlayInterval);
+    }, 100);
 
     return () => {
+      clearTimeout(timeoutId);
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
@@ -97,11 +101,17 @@ export default function ImageCarousel({
   }, [autoPlay, autoPlayInterval, images.length, isVisible]);
 
   const goToPrevious = () => {
-    setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
   };
 
   const goToNext = () => {
-    setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
   };
 
   if (images.length === 0) return null;
@@ -114,16 +124,18 @@ export default function ImageCarousel({
       )}
       
       {/* Main image */}
-      <OptimizedImage
-        src={images[currentIndex]}
-        alt={`${alt} - ${currentIndex + 1}`}
-        className={`w-full h-48 object-cover rounded-lg transition-all duration-500 ${
-          preloadedImages.has(currentIndex) ? 'opacity-100' : 'opacity-0'
-        }`}
-        loading="eager"
-        width={400}
-        height={300}
-      />
+      <div className="relative w-full h-48 overflow-hidden rounded-lg">
+        <OptimizedImage
+          src={images[currentIndex]}
+          alt={`${alt} - ${currentIndex + 1}`}
+          className={`w-full h-48 object-cover transition-all duration-300 ${
+            preloadedImages.has(currentIndex) ? 'opacity-100' : 'opacity-0'
+          }`}
+          loading="eager"
+          width={400}
+          height={300}
+        />
+      </div>
 
       {/* Navigation arrows - only show if more than 1 image */}
       {images.length > 1 && (
@@ -152,7 +164,7 @@ export default function ImageCarousel({
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => goToSlide(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
                   ? "bg-gold scale-125"

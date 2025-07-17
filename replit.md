@@ -162,6 +162,7 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 17, 2025. Changed "CFTV" to "CCTV" across all components
 - July 17, 2025. Implemented intelligent preloading for image carousel: loads current + next + previous images only, pauses auto-play when not visible, clears intervals on manual navigation
 - July 17, 2025. Fixed carousel synchronization issue by removing circular dependencies in useEffect
+- July 17, 2025. Improved carousel button synchronization with DOM updates and reduced transition duration for better responsiveness
 
 ## User Preferences
 
