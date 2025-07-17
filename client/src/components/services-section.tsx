@@ -14,8 +14,8 @@ import {
   Eye
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import ImageCarousel from "@/components/image-carousel";
-import OptimizedImage from "@/components/optimized-image";
+import SimpleCarousel from "@/components/simple-carousel";
+
 import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jpg";
 import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg";
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
@@ -34,7 +34,7 @@ const services = [
     icon: Camera,
     title: "Videovigilância CCTV",
     description: "Instalação de câmeras de videovigilância para monitoramento 24/7 com tecnologia avançada",
-    images: [securityInstallationImage]
+    images: [securityInstallationImage, technicianWorkingImage]
   },
   {
     icon: Zap,
@@ -43,48 +43,44 @@ const services = [
     images: [
       electricalImage1,
       electricalImage2,
-      electricalImage3,
-      electricalImage4,
-      electricalImage5,
-      electricalImage6,
-      electricalImage7
+      electricalImage3
     ]
   },
   {
     icon: DoorOpen,
     title: "Automação de Portões",
     description: "Sistemas automatizados de portões com controles remotos e sensores de segurança",
-    images: [technicianWorkingImage]
+    images: [salesTeamImage, installationTeamImage]
   },
   {
     icon: MapPin,
     title: "GPS Tracking",
     description: "Sistemas de rastreamento GPS para veículos e equipamentos com monitoramento em tempo real",
-    images: [installationTeamImage]
+    images: [technicianWorkingImage, securityInstallationImage]
   },
   {
     icon: Shield,
     title: "Controle de Acesso",
     description: "Sistemas de controle de acesso com cartões, códigos e tecnologia biométrica",
-    images: [salesTeamImage]
+    images: [installationTeamImage, electricalImage4]
   },
   {
     icon: Phone,
     title: "Vídeo Interfone",
     description: "Sistemas de comunicação visual com interfones digitais de alta definição",
-    images: [securityInstallationImage]
+    images: [electricalImage5, electricalImage6]
   },
   {
     icon: Lock,
     title: "Fechaduras Electrónicas",
     description: "Fechaduras inteligentes com códigos, cartões e controle remoto via smartphone",
-    images: [technicianWorkingImage]
+    images: [electricalImage7, technicianWorkingImage]
   },
   {
     icon: Fingerprint,
     title: "Autenticação Biométrica",
     description: "Sistemas de reconhecimento de impressões digitais e reconhecimento facial",
-    images: [installationTeamImage]
+    images: [securityInstallationImage, salesTeamImage]
   },
   {
     icon: ShoppingCart,
@@ -96,13 +92,13 @@ const services = [
     icon: Wrench,
     title: "Instalação Profissional",
     description: "Instalação profissional de todos os sistemas de segurança electrônica",
-    images: [technicianWorkingImage]
+    images: [technicianWorkingImage, installationTeamImage]
   },
   {
     icon: Settings,
     title: "Manutenção e Suporte",
     description: "Manutenção preventiva e corretiva com suporte técnico especializado 24/7",
-    images: [installationTeamImage]
+    images: [installationTeamImage, electricalImage1]
   },
   {
     icon: Eye,
@@ -141,7 +137,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="service-card rounded-xl p-6 hover-3d tech-border transform-gpu hover-optimized"
             >
-              <ImageCarousel
+              <SimpleCarousel
                 images={service.images}
                 alt={service.title}
                 className="mb-4"

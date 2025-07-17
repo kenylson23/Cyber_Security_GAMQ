@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import ImageCarousel from "@/components/image-carousel";
+import SimpleCarousel from "@/components/simple-carousel";
 import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
 import automaticGatesImage from "@assets/IMG_20250322_162658_1752355633154.jpg";
 import surveillanceSystemImage from "@assets/IMG_20250321_173542_1752356189979.jpg";
@@ -74,7 +74,7 @@ export default function ProjectsSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="project-card bg-black-medium rounded-xl overflow-hidden hover-3d tech-border transform-gpu hover-optimized"
             >
-              <ImageCarousel
+              <SimpleCarousel
                 images={project.images}
                 alt={project.title}
                 className="w-full h-48 object-cover"
