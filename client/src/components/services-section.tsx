@@ -7,6 +7,14 @@ import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jp
 import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg";
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
 import salesTeamImage from "@assets/IMG_20250322_162658_1752355169600.jpg";
+// Electrical work carousel images
+import electricalImage1 from "@assets/IMG_20250612_104821_5_11zon_1752747543695.jpg";
+import electricalImage2 from "@assets/IMG_20250614_100400_6_11zon_1752747543708.jpg";
+import electricalImage3 from "@assets/IMG_20250614_101003_1_11zon_1752747661213.jpg";
+import electricalImage4 from "@assets/IMG_20250614_100405_7_11zon_1752747661227.jpg";
+import electricalImage5 from "@assets/IMG_20250614_133959_2_11zon_1752747695318.jpg";
+import electricalImage6 from "@assets/IMG_20250614_134012_3_11zon_1752747695326.jpg";
+import electricalImage7 from "@assets/IMG_20250614_134021_4_11zon_1752747750633.jpg";
 
 const services = [
   {
@@ -31,7 +39,16 @@ const services = [
     icon: Zap,
     title: "Electricidade",
     description: "Serviços elétricos especializados para instalações de segurança electrônica",
-    images: [securityInstallationImage]
+    images: [
+      securityInstallationImage,
+      electricalImage1,
+      electricalImage2,
+      electricalImage3,
+      electricalImage4,
+      electricalImage5,
+      electricalImage6,
+      electricalImage7
+    ]
   }
 ];
 

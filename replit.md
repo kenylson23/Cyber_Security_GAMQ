@@ -98,9 +98,11 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - Implemented auto-play functionality with customizable intervals
 - Added navigation dots and image counter for better UX
 - Integrated 8 new surveillance installation images in "Sistema de Vigilância" project
+- Added 7 new electrical work images to "Electricidade" service carousel
 - Touch-friendly carousel controls with hover effects
 - Smooth transitions with GPU-accelerated animations
 - Surveillance project carousel rotates automatically every 4 seconds
+- Electrical service carousel rotates automatically every 3 seconds
 - Optimized carousel performance with proper image lazy loading
 
 ### Performance Optimization (July 12, 2025)
@@ -152,6 +154,7 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 12, 2025. Added real company images to all services and projects sections
 - July 12, 2025. Updated company address to "Viana-Estalagem sentido Cacuaco junto a margem"
 - July 17, 2025. Added image carousel functionality to "Sistema de Vigilância" project with 8 new surveillance installation images
+- July 17, 2025. Added 7 new electrical work images to "Electricidade" service carousel
 
 ## User Preferences
 
