@@ -46,7 +46,7 @@ export default function OptimizedImage({
       )}
       <img
         ref={imgRef}
-        src={isInView ? src : undefined}
+        src={isInView || loading === 'eager' ? src : undefined}
         alt={alt}
         loading={loading}
         width={width}
@@ -55,6 +55,7 @@ export default function OptimizedImage({
           isLoaded ? "opacity-100" : "opacity-0"
         } ${className}`}
         onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
       />
     </div>
   );
