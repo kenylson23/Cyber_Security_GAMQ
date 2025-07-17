@@ -18,8 +18,10 @@ export default function SimpleCarousel({
 }: SimpleCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Visibility observer
   useEffect(() => {
@@ -37,9 +39,9 @@ export default function SimpleCarousel({
     return () => observer.disconnect();
   }, []);
 
-  // Auto-play functionality (optimized)
+  // Auto-play functionality with manual pause
   useEffect(() => {
-    if (!autoPlay || images.length <= 1 || !isVisible) {
+    if (!autoPlay || images.length <= 1 || !isVisible || isPaused) {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
@@ -59,7 +61,26 @@ export default function SimpleCarousel({
         intervalRef.current = null;
       }
     };
-  }, [autoPlay, autoPlayInterval, images.length, isVisible]);
+  }, [autoPlay, autoPlayInterval, images.length, isVisible, isPaused]);
+
+  // Handle manual navigation with temporary pause
+  const handleManualNavigation = (navigationFn: () => void) => {
+    // Clear any existing pause timeout
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+    
+    // Execute navigation immediately
+    navigationFn();
+    
+    // Pause auto-play temporarily
+    setIsPaused(true);
+    
+    // Resume auto-play after 3 seconds
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 3000);
+  };
 
   const goToPrevious = () => {
     setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
@@ -72,6 +93,18 @@ export default function SimpleCarousel({
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+  }, []);
 
   if (images.length === 0) return null;
 
@@ -91,16 +124,16 @@ export default function SimpleCarousel({
       {images.length > 1 && (
         <>
           <button
-            onClick={goToPrevious}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+            onClick={() => handleManualNavigation(goToPrevious)}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
             aria-label="Imagem anterior"
           >
             <ChevronLeft size={16} />
           </button>
           
           <button
-            onClick={goToNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+            onClick={() => handleManualNavigation(goToNext)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
             aria-label="Próxima imagem"
           >
             <ChevronRight size={16} />
@@ -114,8 +147,8 @@ export default function SimpleCarousel({
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              onClick={() => handleManualNavigation(() => goToSlide(index))}
+              className={`w-2 h-2 rounded-full transition-all duration-200 ${
                 index === currentIndex
                   ? "bg-gold scale-125"
                   : "bg-white/60 hover:bg-white/80"
