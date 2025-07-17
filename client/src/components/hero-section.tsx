@@ -37,9 +37,20 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-7xl font-orbitron font-bold mb-6 text-shadow-gold">
             <span className="text-gold">G.A.M.Q</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
-            Instalação de câmeras vídeo vigilância • Cerca elétrica • Automação de portão • GPS • Controle de acesso • Video porteiro • Fechadura eletrônico • Biométrico
-          </p>
+          <div className="mb-8 max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+              Proteja o que realmente importa com tecnologia de ponta
+            </h2>
+            <p className="text-lg md:text-xl mb-4 text-gray-300">
+              Soluções completas em segurança eletrônica: vídeo vigilância, controle de acesso, automação e muito mais.
+            </p>
+            <p className="text-lg md:text-xl mb-4 text-gray-300">
+              Instalação rápida, suporte especializado e confiança garantida.
+            </p>
+            <p className="text-xl md:text-2xl font-bold text-gold flex items-center justify-center gap-2">
+              🔒 Seu espaço mais seguro começa aqui.
+            </p>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={scrollToServices}
