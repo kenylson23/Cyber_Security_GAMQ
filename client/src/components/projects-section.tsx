@@ -1,27 +1,46 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import OptimizedImage from "@/components/optimized-image";
+import ImageCarousel from "@/components/image-carousel";
 import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
 import automaticGatesImage from "@assets/IMG_20250322_162658_1752355633154.jpg";
 import surveillanceSystemImage from "@assets/IMG_20250321_173542_1752356189979.jpg";
+// Surveillance system carousel images
+import surveillanceImage1 from "@assets/IMG_20250614_120542_7_11zon_1752745202473.jpg";
+import surveillanceImage2 from "@assets/IMG_20250614_120716_8_11zon_1752745202494.jpg";
+import surveillanceImage3 from "@assets/IMG_20250614_123256_1_11zon_1752745202497.jpg";
+import surveillanceImage4 from "@assets/IMG_20250614_125246_2_11zon_1752745202502.jpg";
+import surveillanceImage5 from "@assets/IMG_20250614_125254_3_11zon_1752745245168.jpg";
+import surveillanceImage6 from "@assets/IMG_20250618_121441_4_11zon_1752745245179.jpg";
+import surveillanceImage7 from "@assets/IMG_20250618_122018_5_11zon_1752745245181.jpg";
+import surveillanceImage8 from "@assets/IMG_20250618_122139_6_11zon_1752745245181.jpg";
 
 const projects = [
   {
     title: "Montagem de Cerca Eléctrica",
     description: "Instalação completa de cerca eléctrica para segurança perimetral residencial e comercial",
-    image: electricFenceImage,
+    images: [electricFenceImage],
     tags: ["Cerca Eléctrica", "Perímetro"]
   },
   {
     title: "Portões Automatizados",
     description: "Automação de portões residenciais e comerciais com controle remoto e sistemas de segurança",
-    image: automaticGatesImage,
+    images: [automaticGatesImage],
     tags: ["Automação", "Portões"]
   },
   {
     title: "Sistema de Vigilância",
     description: "Implementação de sistemas CFTV com câmeras de alta definição e monitoramento 24/7",
-    image: surveillanceSystemImage,
+    images: [
+      surveillanceSystemImage,
+      surveillanceImage1,
+      surveillanceImage2,
+      surveillanceImage3,
+      surveillanceImage4,
+      surveillanceImage5,
+      surveillanceImage6,
+      surveillanceImage7,
+      surveillanceImage8
+    ],
     tags: ["CFTV", "Vigilância"]
   }
 ];
@@ -55,13 +74,12 @@ export default function ProjectsSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="project-card bg-black-medium rounded-xl overflow-hidden hover-3d tech-border transform-gpu hover-optimized"
             >
-              <OptimizedImage
-                src={project.image}
+              <ImageCarousel
+                images={project.images}
                 alt={project.title}
                 className="w-full h-48 object-cover"
-                loading="lazy"
-                width={400}
-                height={300}
+                autoPlay={true}
+                autoPlayInterval={4000}
               />
               <div className="p-6">
                 <h3 className="text-xl font-orbitron font-bold mb-3 text-gold">
