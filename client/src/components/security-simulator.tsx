@@ -17,7 +17,7 @@ interface SecuritySystem {
 const securitySystems: SecuritySystem[] = [
   {
     id: "cctv",
-    name: "Sistema CFTV",
+    name: "Sistema CCTV",
     icon: Camera,
     description: "Câmeras de monitoramento com cobertura 360°",
     color: 0x00ff00

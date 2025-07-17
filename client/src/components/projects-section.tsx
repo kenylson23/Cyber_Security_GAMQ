@@ -29,7 +29,7 @@ const projects = [
   },
   {
     title: "Sistema de Vigilância",
-    description: "Implementação de sistemas CFTV com câmeras de alta definição e monitoramento 24/7",
+    description: "Implementação de sistemas CCTV com câmeras de alta definição e monitoramento 24/7",
     images: [
       surveillanceSystemImage,
       surveillanceImage1,
@@ -41,7 +41,7 @@ const projects = [
       surveillanceImage7,
       surveillanceImage8
     ],
-    tags: ["CFTV", "Vigilância"]
+    tags: ["CCTV", "Vigilância"]
   }
 ];
 

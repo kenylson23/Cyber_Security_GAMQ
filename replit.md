@@ -119,7 +119,7 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 
 ### Security Simulator Implementation (July 04, 2025)
 - Added interactive 3D security simulator using Three.js
-- Features 4 security systems: CFTV, Motion Sensors, Access Control, Wireless Network
+- Features 4 security systems: CCTV, Motion Sensors, Access Control, Wireless Network
 - Includes real-time animations, system switching, and control panel
 - Added navigation menu item for easy access
 - Custom CSS styling for enhanced visual effects
@@ -159,6 +159,7 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 17, 2025. Updated phone numbers to +244 923711556 and +244 95167755
 - July 17, 2025. Updated hero section services to include all specific services: Instalação de câmeras vídeo vigilância, Cerca elétrica, Automação de portão, GPS, Controle de acesso, Video porteiro, Fechadura eletrônico, Biométrico
 - July 17, 2025. Changed "Electricidade" service to "Cerca Eléctrica" with updated description
+- July 17, 2025. Changed "CFTV" to "CCTV" across all components
 
 ## User Preferences
 
