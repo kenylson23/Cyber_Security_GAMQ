@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
-import { ShoppingCart, Wrench, Settings, Zap } from "lucide-react";
+import { 
+  ShoppingCart, 
+  Wrench, 
+  Settings, 
+  Zap, 
+  Camera, 
+  DoorOpen, 
+  MapPin, 
+  Shield, 
+  Phone, 
+  Lock, 
+  Fingerprint,
+  Eye
+} from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import ImageCarousel from "@/components/image-carousel";
 import OptimizedImage from "@/components/optimized-image";
@@ -18,29 +31,16 @@ import electricalImage7 from "@assets/IMG_20250614_134021_4_11zon_1752747750633.
 
 const services = [
   {
-    icon: ShoppingCart,
-    title: "Venda",
-    description: "Comercialização de equipamentos de segurança electrônica das melhores marcas",
-    images: [salesTeamImage]
-  },
-  {
-    icon: Wrench,
-    title: "Instalação",
-    description: "Instalação profissional de sistemas de segurança electrônica e equipamentos",
-    images: [technicianWorkingImage]
-  },
-  {
-    icon: Settings,
-    title: "Manutenção de Equipamentos de Segurança Electrônica",
-    description: "Manutenção preventiva e corretiva de equipamentos de segurança electrônica",
-    images: [installationTeamImage]
+    icon: Camera,
+    title: "Videovigilância CCTV",
+    description: "Instalação de câmeras de videovigilância para monitoramento 24/7 com tecnologia avançada",
+    images: [securityInstallationImage]
   },
   {
     icon: Zap,
     title: "Cerca Eléctrica",
     description: "Instalação e manutenção de cercas elétricas para segurança perimetral",
     images: [
-      securityInstallationImage,
       electricalImage1,
       electricalImage2,
       electricalImage3,
@@ -49,6 +49,66 @@ const services = [
       electricalImage6,
       electricalImage7
     ]
+  },
+  {
+    icon: DoorOpen,
+    title: "Automação de Portões",
+    description: "Sistemas automatizados de portões com controles remotos e sensores de segurança",
+    images: [technicianWorkingImage]
+  },
+  {
+    icon: MapPin,
+    title: "GPS Tracking",
+    description: "Sistemas de rastreamento GPS para veículos e equipamentos com monitoramento em tempo real",
+    images: [installationTeamImage]
+  },
+  {
+    icon: Shield,
+    title: "Controle de Acesso",
+    description: "Sistemas de controle de acesso com cartões, códigos e tecnologia biométrica",
+    images: [salesTeamImage]
+  },
+  {
+    icon: Phone,
+    title: "Vídeo Interfone",
+    description: "Sistemas de comunicação visual com interfones digitais de alta definição",
+    images: [securityInstallationImage]
+  },
+  {
+    icon: Lock,
+    title: "Fechaduras Electrónicas",
+    description: "Fechaduras inteligentes com códigos, cartões e controle remoto via smartphone",
+    images: [technicianWorkingImage]
+  },
+  {
+    icon: Fingerprint,
+    title: "Autenticação Biométrica",
+    description: "Sistemas de reconhecimento de impressões digitais e reconhecimento facial",
+    images: [installationTeamImage]
+  },
+  {
+    icon: ShoppingCart,
+    title: "Venda de Equipamentos",
+    description: "Comercialização de equipamentos de segurança electrônica das melhores marcas",
+    images: [salesTeamImage]
+  },
+  {
+    icon: Wrench,
+    title: "Instalação Profissional",
+    description: "Instalação profissional de todos os sistemas de segurança electrônica",
+    images: [technicianWorkingImage]
+  },
+  {
+    icon: Settings,
+    title: "Manutenção e Suporte",
+    description: "Manutenção preventiva e corretiva com suporte técnico especializado 24/7",
+    images: [installationTeamImage]
+  },
+  {
+    icon: Eye,
+    title: "Monitoramento 24/7",
+    description: "Serviços de monitoramento contínuo com central de alarmes profissional",
+    images: [securityInstallationImage]
   }
 ];
 
@@ -67,12 +127,12 @@ export default function ServicesSection() {
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-gold">
             NOSSOS SERVIÇOS
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Equipamentos de segurança electrônica com venda, instalação, manutenção e serviços elétricos
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+            Soluções completas em segurança electrônica: videovigilância, controle de acesso, automação, GPS tracking e muito mais
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}

@@ -164,6 +164,9 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 17, 2025. Fixed carousel synchronization issue by removing circular dependencies in useEffect
 - July 17, 2025. Improved carousel button synchronization with DOM updates and reduced transition duration for better responsiveness
 - July 17, 2025. Fixed OptimizedImage component to properly handle eager loading and error states, ensuring all images load correctly
+- July 17, 2025. Expanded services section from 4 to 12 comprehensive security services: Added Videovigilância CCTV, Automação de Portões, GPS Tracking, Controle de Acesso, Vídeo Interfone, Fechaduras Electrónicas, Autenticação Biométrica, Venda de Equipamentos, Instalação Profissional, Manutenção e Suporte, and Monitoramento 24/7
+- July 17, 2025. Updated contact form dropdown to include all 12 specific security services plus "Outro Serviço" option
+- July 17, 2025. Improved services section layout with responsive grid (1 col mobile, 2 col tablet, 3 col desktop, 4 col xl screens) and updated section description
 
 ## User Preferences
 

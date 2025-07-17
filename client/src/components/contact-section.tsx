@@ -175,10 +175,19 @@ export default function ContactSection() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="seguranca-eletronica">Segurança Eletrônica</SelectItem>
-                          <SelectItem value="informatica">Informática</SelectItem>
-                          <SelectItem value="cyber-seguranca">Cyber Segurança</SelectItem>
-                          <SelectItem value="projetos">Projetos</SelectItem>
+                          <SelectItem value="videovigilancia">Videovigilância CCTV</SelectItem>
+                          <SelectItem value="cerca-electrica">Cerca Eléctrica</SelectItem>
+                          <SelectItem value="automacao-portoes">Automação de Portões</SelectItem>
+                          <SelectItem value="gps-tracking">GPS Tracking</SelectItem>
+                          <SelectItem value="controle-acesso">Controle de Acesso</SelectItem>
+                          <SelectItem value="video-interfone">Vídeo Interfone</SelectItem>
+                          <SelectItem value="fechaduras-electronicas">Fechaduras Electrónicas</SelectItem>
+                          <SelectItem value="biometria">Autenticação Biométrica</SelectItem>
+                          <SelectItem value="venda-equipamentos">Venda de Equipamentos</SelectItem>
+                          <SelectItem value="instalacao">Instalação Profissional</SelectItem>
+                          <SelectItem value="manutencao">Manutenção e Suporte</SelectItem>
+                          <SelectItem value="monitoramento">Monitoramento 24/7</SelectItem>
+                          <SelectItem value="outro">Outro Serviço</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
