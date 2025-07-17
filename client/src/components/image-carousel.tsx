@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import OptimizedImage from "./optimized-image";
 
@@ -18,38 +18,111 @@ export default function ImageCarousel({
   autoPlayInterval = 4000
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set());
+  const [isVisible, setIsVisible] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play functionality
+  // Intersection Observer for visibility
   useEffect(() => {
-    if (!autoPlay || images.length <= 1) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
 
-    const interval = setInterval(() => {
+    if (carouselRef.current) {
+      observer.observe(carouselRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Intelligent preloading
+  useEffect(() => {
+    if (!isVisible || images.length <= 1) return;
+
+    const preloadImage = (index: number) => {
+      if (preloadedImages.has(index)) return;
+
+      const img = new Image();
+      img.src = images[index];
+      img.onload = () => {
+        setPreloadedImages(prev => new Set([...prev, index]));
+      };
+    };
+
+    // Preload current image
+    preloadImage(currentIndex);
+
+    // Preload next image
+    const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    preloadImage(nextIndex);
+
+    // Preload previous image
+    const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    preloadImage(prevIndex);
+
+  }, [currentIndex, images, isVisible, preloadedImages]);
+
+  // Auto-play functionality with pause when not visible
+  useEffect(() => {
+    if (!autoPlay || images.length <= 1 || !isVisible) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      return;
+    }
+
+    intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => 
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, autoPlayInterval);
 
-    return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, images.length]);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [autoPlay, autoPlayInterval, images.length, isVisible]);
 
   const goToPrevious = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
     setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
   };
 
   const goToNext = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
     setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
   };
 
   if (images.length === 0) return null;
 
   return (
-    <div className={`relative group ${className}`}>
+    <div ref={carouselRef} className={`relative group ${className}`}>
+      {/* Loading skeleton */}
+      {!preloadedImages.has(currentIndex) && (
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse rounded-lg" />
+      )}
+      
       {/* Main image */}
       <OptimizedImage
         src={images[currentIndex]}
         alt={`${alt} - ${currentIndex + 1}`}
-        className="w-full h-48 object-cover rounded-lg transition-all duration-500"
-        loading="lazy"
+        className={`w-full h-48 object-cover rounded-lg transition-all duration-500 ${
+          preloadedImages.has(currentIndex) ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading="eager"
         width={400}
         height={300}
       />
@@ -81,7 +154,13 @@ export default function ImageCarousel({
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                if (intervalRef.current) {
+                  clearInterval(intervalRef.current);
+                  intervalRef.current = null;
+                }
+                setCurrentIndex(index);
+              }}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
                   ? "bg-gold scale-125"
@@ -97,6 +176,13 @@ export default function ImageCarousel({
       {images.length > 1 && (
         <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs font-medium">
           {currentIndex + 1} / {images.length}
+        </div>
+      )}
+      
+      {/* Preload status indicator (development only) */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="absolute top-2 left-2 bg-black/50 text-white px-2 py-1 rounded text-xs">
+          Preloaded: {preloadedImages.size}/{images.length}
         </div>
       )}
     </div>
