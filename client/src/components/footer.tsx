@@ -21,7 +21,7 @@ export default function Footer() {
               <li><a href="#services" className="hover:text-gold">Venda</a></li>
               <li><a href="#services" className="hover:text-gold">Instalação</a></li>
               <li><a href="#services" className="hover:text-gold">Manutenção de Equipamentos</a></li>
-              <li><a href="#services" className="hover:text-gold">Electricidade</a></li>
+              <li><a href="#services" className="hover:text-gold">Cerca Eléctrica</a></li>
             </ul>
           </div>
           

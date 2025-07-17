@@ -37,8 +37,8 @@ const services = [
   },
   {
     icon: Zap,
-    title: "Electricidade",
-    description: "Serviços elétricos especializados para instalações de segurança electrônica",
+    title: "Cerca Eléctrica",
+    description: "Instalação e manutenção de cercas elétricas para segurança perimetral",
     images: [
       securityInstallationImage,
       electricalImage1,
