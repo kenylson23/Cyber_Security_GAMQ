@@ -153,7 +153,8 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="service-card rounded-xl p-6 hover-3d tech-border transform-gpu hover-optimized"
             >
-              {service.hasCarousel && service.images ? (
+              {/* Only Cerca Eléctrica should have carousel */}
+              {service.hasCarousel && service.images && service.title === "Cerca Eléctrica" ? (
                 <SimpleCarousel
                   images={service.images}
                   alt={service.title}

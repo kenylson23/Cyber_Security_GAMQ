@@ -1,38 +1,29 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import SimpleCarousel from "@/components/simple-carousel";
 import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
 import automaticGatesImage from "@assets/IMG_20250322_162658_1752355633154.jpg";
 import surveillanceSystemImage from "@assets/IMG_20250321_173542_1752356189979.jpg";
-// Surveillance system carousel images (optimized selection)
-import surveillanceImage1 from "@assets/IMG_20250614_120542_7_11zon_1752745202473.jpg";
-import surveillanceImage3 from "@assets/IMG_20250614_123256_1_11zon_1752745202497.jpg";
-import surveillanceImage5 from "@assets/IMG_20250614_125254_3_11zon_1752745245168.jpg";
-import surveillanceImage7 from "@assets/IMG_20250618_122018_5_11zon_1752745245181.jpg";
 
 const projects = [
   {
     title: "Montagem de Cerca Eléctrica",
     description: "Instalação completa de cerca eléctrica para segurança perimetral residencial e comercial",
-    images: [electricFenceImage],
+    image: electricFenceImage,
+    hasCarousel: false,
     tags: ["Cerca Eléctrica", "Perímetro"]
   },
   {
     title: "Portões Automatizados",
     description: "Automação de portões residenciais e comerciais com controle remoto e sistemas de segurança",
-    images: [automaticGatesImage],
+    image: automaticGatesImage,
+    hasCarousel: false,
     tags: ["Automação", "Portões"]
   },
   {
     title: "Sistema de Vigilância",
     description: "Implementação de sistemas CCTV com câmeras de alta definição e monitoramento 24/7",
-    images: [
-      surveillanceSystemImage,
-      surveillanceImage1,
-      surveillanceImage3,
-      surveillanceImage5,
-      surveillanceImage7
-    ],
+    image: surveillanceSystemImage,
+    hasCarousel: false,
     tags: ["CCTV", "Vigilância"]
   }
 ];
@@ -66,13 +57,14 @@ export default function ProjectsSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="project-card bg-black-medium rounded-xl overflow-hidden hover-3d tech-border transform-gpu hover-optimized"
             >
-              <SimpleCarousel
-                images={project.images}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-                autoPlay={true}
-                autoPlayInterval={project.title === "Sistema de Vigilância" ? 5000 : 4000}
-              />
+              <div className="relative w-full h-48 overflow-hidden bg-gray-800">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-orbitron font-bold mb-3 text-gold">
                   {project.title}

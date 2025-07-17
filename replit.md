@@ -171,6 +171,7 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 17, 2025. Optimized image carousels for better performance: Created SimpleCarousel component to replace complex ImageCarousel, reduced Sistema de Vigilância images from 9 to 5 selected images, increased autoplay interval to 5000ms, removed unused image imports, and applied optimizations across all services and projects sections
 - July 17, 2025. Eliminated carousel navigation delays: Implemented direct index navigation, removed intermediate functions, auto-play pauses for 1.5s on manual interaction, removed transition-opacity for instant visual feedback, and applied these optimizations across all 15 carousels (12 services + 3 projects)
 - July 17, 2025. Optimized services section for better performance: Kept carousel only for "Cerca Eléctrica" service (7 images), converted all other 11 services to single static images to reduce rendering load and improve page performance
+- July 17, 2025. Removed all carousels from projects section: Converted all 3 projects to single static images, ensuring only "Cerca Eléctrica" service maintains carousel functionality across the entire website for maximum performance
 
 ## User Preferences
 
