@@ -101,8 +101,8 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-xl font-orbitron font-bold mb-2 text-gold">Telefone</h3>
                 <p className="text-gray-300">
-                  (11) 9999-9999<br />
-                  (11) 8888-8888
+                  +244 923711556<br />
+                  +244 95167755
                 </p>
               </div>
             </div>

@@ -156,6 +156,7 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 17, 2025. Added image carousel functionality to "Sistema de Vigilância" project with 8 new surveillance installation images
 - July 17, 2025. Added 7 new electrical work images to "Electricidade" service carousel
 - July 17, 2025. Updated company address to "Avenida Deolinda Rodrigues Estalagem Junto a Pedonal da Moagem sentido Vila de Viana"
+- July 17, 2025. Updated phone numbers to +244 923711556 and +244 95167755
 
 ## User Preferences
 

@@ -28,7 +28,8 @@ export default function Footer() {
           <div>
             <h3 className="text-gold font-orbitron font-bold mb-4">Contato</h3>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li>(11) 9999-9999</li>
+              <li>+244 923711556</li>
+              <li>+244 95167755</li>
               <li>contato@gamq.com</li>
               <li>Avenida Deolinda Rodrigues Estalagem Junto a Pedonal da Moagem sentido Vila de Viana</li>
             </ul>
