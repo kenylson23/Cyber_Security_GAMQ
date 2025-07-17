@@ -1,36 +1,46 @@
 import { motion } from "framer-motion";
 import { ShoppingCart, Wrench, Settings, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import ImageCarousel from "@/components/image-carousel";
 import OptimizedImage from "@/components/optimized-image";
 import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jpg";
 import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg";
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
 import salesTeamImage from "@assets/IMG_20250322_162658_1752355169600.jpg";
+// New carousel images
+import installationImage1 from "@assets/IMG_20250614_120542_7_11zon_1752745202473.jpg";
+import installationImage2 from "@assets/IMG_20250614_120716_8_11zon_1752745202494.jpg";
+import installationImage3 from "@assets/IMG_20250614_123256_1_11zon_1752745202497.jpg";
+import installationImage4 from "@assets/IMG_20250614_125246_2_11zon_1752745202502.jpg";
+import installationImage5 from "@assets/IMG_20250614_125254_3_11zon_1752745245168.jpg";
+import installationImage6 from "@assets/IMG_20250618_121441_4_11zon_1752745245179.jpg";
+import installationImage7 from "@assets/IMG_20250618_122018_5_11zon_1752745245181.jpg";
+import installationImage8 from "@assets/IMG_20250618_122139_6_11zon_1752745245181.jpg";
 
 const services = [
   {
     icon: ShoppingCart,
     title: "Venda",
     description: "Comercialização de equipamentos de segurança electrônica das melhores marcas",
-    image: salesTeamImage
+    images: [salesTeamImage, installationImage6, installationImage7]
   },
   {
     icon: Wrench,
     title: "Instalação",
     description: "Instalação profissional de sistemas de segurança electrônica e equipamentos",
-    image: technicianWorkingImage
+    images: [technicianWorkingImage, installationImage1, installationImage2, installationImage3]
   },
   {
     icon: Settings,
     title: "Manutenção de Equipamentos de Segurança Electrônica",
     description: "Manutenção preventiva e corretiva de equipamentos de segurança electrônica",
-    image: installationTeamImage
+    images: [installationTeamImage, installationImage4, installationImage5, installationImage8]
   },
   {
     icon: Zap,
     title: "Electricidade",
     description: "Serviços elétricos especializados para instalações de segurança electrônica",
-    image: securityInstallationImage
+    images: [securityInstallationImage, installationImage7, installationImage8]
   }
 ];
 
@@ -63,13 +73,12 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="service-card rounded-xl p-6 hover-3d tech-border transform-gpu hover-optimized"
             >
-              <OptimizedImage
-                src={service.image}
+              <ImageCarousel
+                images={service.images}
                 alt={service.title}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-                loading="lazy"
-                width={400}
-                height={300}
+                className="mb-4"
+                autoPlay={true}
+                autoPlayInterval={3000}
               />
               <div className="text-center">
                 <service.icon className="text-gold text-3xl mb-4 mx-auto" />

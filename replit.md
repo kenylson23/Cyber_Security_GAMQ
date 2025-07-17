@@ -93,6 +93,16 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 
 ## Recent Changes
 
+### Image Carousel Implementation (July 17, 2025)
+- Added interactive image carousel component with navigation controls
+- Implemented auto-play functionality with customizable intervals
+- Added navigation dots and image counter for better UX
+- Integrated 8 new installation images across all service categories
+- Touch-friendly carousel controls with hover effects
+- Smooth transitions with GPU-accelerated animations
+- Service images now rotate automatically every 3 seconds
+- Optimized carousel performance with proper image lazy loading
+
 ### Performance Optimization (July 12, 2025)
 - Implemented lazy loading for Three.js scene and Security Simulator
 - Added optimized image component with intersection observer
@@ -141,7 +151,10 @@ This is a modern full-stack web application for G.A.M.Q, a technology company sp
 - July 12, 2025. Updated services to focus on: Venda, Instalação, Manutenção de Equipamentos de Segurança Eletrônica, e Electricidade
 - July 12, 2025. Added real company images to all services and projects sections
 - July 12, 2025. Updated company address to "Viana-Estalagem sentido Cacuaco junto a margem"
+- July 17, 2025. Added image carousel functionality to services section with 8 new installation images
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Image display preference: Use carousel functionality for service images with auto-play enabled.
+Spelling preference: Use Portuguese spelling "Electrônica" instead of "Eletrônica".
