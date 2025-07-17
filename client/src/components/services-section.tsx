@@ -34,7 +34,8 @@ const services = [
     icon: Camera,
     title: "Videovigilância CCTV",
     description: "Instalação de câmeras de videovigilância para monitoramento 24/7 com tecnologia avançada",
-    images: [securityInstallationImage, technicianWorkingImage]
+    image: securityInstallationImage,
+    hasCarousel: false
   },
   {
     icon: Zap,
@@ -43,68 +44,83 @@ const services = [
     images: [
       electricalImage1,
       electricalImage2,
-      electricalImage3
-    ]
+      electricalImage3,
+      electricalImage4,
+      electricalImage5,
+      electricalImage6,
+      electricalImage7
+    ],
+    hasCarousel: true
   },
   {
     icon: DoorOpen,
     title: "Automação de Portões",
     description: "Sistemas automatizados de portões com controles remotos e sensores de segurança",
-    images: [salesTeamImage, installationTeamImage]
+    image: salesTeamImage,
+    hasCarousel: false
   },
   {
     icon: MapPin,
     title: "GPS Tracking",
     description: "Sistemas de rastreamento GPS para veículos e equipamentos com monitoramento em tempo real",
-    images: [technicianWorkingImage, securityInstallationImage]
+    image: technicianWorkingImage,
+    hasCarousel: false
   },
   {
     icon: Shield,
     title: "Controle de Acesso",
     description: "Sistemas de controle de acesso com cartões, códigos e tecnologia biométrica",
-    images: [installationTeamImage, electricalImage4]
+    image: installationTeamImage,
+    hasCarousel: false
   },
   {
     icon: Phone,
     title: "Vídeo Interfone",
     description: "Sistemas de comunicação visual com interfones digitais de alta definição",
-    images: [electricalImage5, electricalImage6]
+    image: electricalImage5,
+    hasCarousel: false
   },
   {
     icon: Lock,
     title: "Fechaduras Electrónicas",
     description: "Fechaduras inteligentes com códigos, cartões e controle remoto via smartphone",
-    images: [electricalImage7, technicianWorkingImage]
+    image: electricalImage7,
+    hasCarousel: false
   },
   {
     icon: Fingerprint,
     title: "Autenticação Biométrica",
     description: "Sistemas de reconhecimento de impressões digitais e reconhecimento facial",
-    images: [securityInstallationImage, salesTeamImage]
+    image: securityInstallationImage,
+    hasCarousel: false
   },
   {
     icon: ShoppingCart,
     title: "Venda de Equipamentos",
     description: "Comercialização de equipamentos de segurança electrônica das melhores marcas",
-    images: [salesTeamImage]
+    image: salesTeamImage,
+    hasCarousel: false
   },
   {
     icon: Wrench,
     title: "Instalação Profissional",
     description: "Instalação profissional de todos os sistemas de segurança electrônica",
-    images: [technicianWorkingImage, installationTeamImage]
+    image: technicianWorkingImage,
+    hasCarousel: false
   },
   {
     icon: Settings,
     title: "Manutenção e Suporte",
     description: "Manutenção preventiva e corretiva com suporte técnico especializado 24/7",
-    images: [installationTeamImage, electricalImage1]
+    image: installationTeamImage,
+    hasCarousel: false
   },
   {
     icon: Eye,
     title: "Monitoramento 24/7",
     description: "Serviços de monitoramento contínuo com central de alarmes profissional",
-    images: [securityInstallationImage]
+    image: securityInstallationImage,
+    hasCarousel: false
   }
 ];
 
@@ -137,13 +153,24 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="service-card rounded-xl p-6 hover-3d tech-border transform-gpu hover-optimized"
             >
-              <SimpleCarousel
-                images={service.images}
-                alt={service.title}
-                className="mb-4"
-                autoPlay={true}
-                autoPlayInterval={3000}
-              />
+              {service.hasCarousel && service.images ? (
+                <SimpleCarousel
+                  images={service.images}
+                  alt={service.title}
+                  className="mb-4"
+                  autoPlay={true}
+                  autoPlayInterval={3000}
+                />
+              ) : (
+                <div className="relative w-full h-48 overflow-hidden rounded-lg bg-gray-800 mb-4">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-48 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
               <div className="text-center">
                 <service.icon className="text-gold text-3xl mb-4 mx-auto" />
                 <h3 className="text-xl font-orbitron font-bold mb-3 text-gold">
