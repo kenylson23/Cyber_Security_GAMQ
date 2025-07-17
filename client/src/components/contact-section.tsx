@@ -88,7 +88,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-xl font-orbitron font-bold mb-2 text-gold">Endereço</h3>
                 <p className="text-gray-300">
-                  Viana-Estalagem sentido Cacuaco junto a margem<br />
+                  Avenida Deolinda Rodrigues Estalagem Junto a Pedonal da Moagem sentido Vila de Viana<br />
                   Luanda, Angola
                 </p>
               </div>

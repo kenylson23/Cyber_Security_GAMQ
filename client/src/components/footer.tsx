@@ -30,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-300 text-sm">
               <li>(11) 9999-9999</li>
               <li>contato@gamq.com</li>
-              <li>Viana-Estalagem sentido Cacuaco junto a margem</li>
+              <li>Avenida Deolinda Rodrigues Estalagem Junto a Pedonal da Moagem sentido Vila de Viana</li>
             </ul>
           </div>
           
