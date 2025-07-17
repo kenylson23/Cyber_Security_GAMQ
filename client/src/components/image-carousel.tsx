@@ -64,7 +64,7 @@ export default function ImageCarousel({
     const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     preloadImage(prevIndex);
 
-  }, [currentIndex, images, isVisible, preloadedImages]);
+  }, [currentIndex, images, isVisible]);
 
   // Auto-play functionality with pause when not visible
   useEffect(() => {
@@ -74,6 +74,12 @@ export default function ImageCarousel({
         intervalRef.current = null;
       }
       return;
+    }
+
+    // Clear existing interval before creating new one
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
     }
 
     intervalRef.current = setInterval(() => {
@@ -91,18 +97,10 @@ export default function ImageCarousel({
   }, [autoPlay, autoPlayInterval, images.length, isVisible]);
 
   const goToPrevious = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
     setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
   };
 
   const goToNext = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
     setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
   };
 
@@ -154,13 +152,7 @@ export default function ImageCarousel({
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                if (intervalRef.current) {
-                  clearInterval(intervalRef.current);
-                  intervalRef.current = null;
-                }
-                setCurrentIndex(index);
-              }}
+              onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
                   ? "bg-gold scale-125"
