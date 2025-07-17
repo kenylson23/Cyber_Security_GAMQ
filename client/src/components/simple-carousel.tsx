@@ -23,6 +23,14 @@ export default function SimpleCarousel({
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Preload all images for instant navigation
+  useEffect(() => {
+    images.forEach((imageSrc) => {
+      const img = new Image();
+      img.src = imageSrc;
+    });
+  }, [images]);
+
   // Visibility observer
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,27 +71,26 @@ export default function SimpleCarousel({
     };
   }, [autoPlay, autoPlayInterval, images.length, isVisible, isPaused]);
 
-  // Handle manual navigation with immediate execution
+  // Handle manual navigation with instant execution
   const handleManualNavigation = (newIndex: number) => {
-    // Clear any existing timers
+    // Clear any existing timers immediately
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
     if (pauseTimeoutRef.current) {
       clearTimeout(pauseTimeoutRef.current);
+      pauseTimeoutRef.current = null;
     }
     
-    // Set new index immediately
+    // Set new index instantly
     setCurrentIndex(newIndex);
-    
-    // Pause auto-play temporarily
     setIsPaused(true);
     
-    // Resume auto-play after 1.5 seconds
+    // Resume auto-play immediately after minimal delay
     pauseTimeoutRef.current = setTimeout(() => {
       setIsPaused(false);
-    }, 1500);
+    }, 500);
   };
 
 
@@ -110,7 +117,7 @@ export default function SimpleCarousel({
           src={images[currentIndex]}
           alt={`${alt} - ${currentIndex + 1}`}
           className="w-full h-48 object-cover"
-          loading="lazy"
+          loading="eager"
         />
       </div>
 
@@ -119,7 +126,7 @@ export default function SimpleCarousel({
         <>
           <button
             onClick={() => handleManualNavigation(currentIndex === 0 ? images.length - 1 : currentIndex - 1)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-100 z-10"
             aria-label="Imagem anterior"
           >
             <ChevronLeft size={16} />
@@ -127,7 +134,7 @@ export default function SimpleCarousel({
           
           <button
             onClick={() => handleManualNavigation(currentIndex === images.length - 1 ? 0 : currentIndex + 1)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-100 z-10"
             aria-label="Próxima imagem"
           >
             <ChevronRight size={16} />
@@ -142,7 +149,7 @@ export default function SimpleCarousel({
             <button
               key={index}
               onClick={() => handleManualNavigation(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-200 ${
+              className={`w-2 h-2 rounded-full transition-all duration-100 ${
                 index === currentIndex
                   ? "bg-gold scale-125"
                   : "bg-white/60 hover:bg-white/80"
