@@ -21,9 +21,9 @@ import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
 import salesTeamImage from "@assets/IMG_20250322_162658_1752355169600.jpg";
 // Videovigilância carousel images
-import cameraImage1 from "@assets/Camer 1.jpg";
-import cameraImage2 from "@assets/camera 2.jpg";
-import cameraImage3 from "@assets/camera 3.jpg";
+import cameraImage1 from "@assets/CV 1.jpg";
+import cameraImage2 from "@assets/CV 2.jpg";
+import cameraImage3 from "@assets/CV.jpg";
 // Vídeo Porteiro carousel images
 import videoIntercomImage1 from "@assets/porteiro 1.jpg";
 import videoIntercomImage2 from "@assets/porteiro 2.jpg";
@@ -135,7 +135,7 @@ const services = [
     icon: Eye,
     title: "Monitoramento 24/7",
     description: "Serviços de monitoramento contínuo com central de alarmes profissional",
-    image: securityInstallationImage,
+    image: cameraImage1,
     hasCarousel: false
   }
 ];
@@ -156,7 +156,7 @@ export default function ServicesSection() {
             NOSSOS SERVIÇOS
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-            Soluções completas em segurança electrônica: videovigilância, controle de acesso, automação, GPS tracking e muito mais
+            Soluções completas em segurança electrônica.
           </p>
         </div>
         
