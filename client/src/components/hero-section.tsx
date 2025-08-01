@@ -42,7 +42,7 @@ export default function HeroSection() {
               Proteja o que realmente importa com tecnologia de ponta
             </h2>
             <p className="text-lg md:text-xl mb-4 text-gray-300">
-              Soluções completas em segurança eletrônica: vídeo vigilância, controle de acesso, automação e muito mais.
+              Soluções completas em segurança eletrônica.
             </p>
             <p className="text-lg md:text-xl mb-4 text-gray-300">
               Instalação rápida, suporte especializado e confiança garantida.

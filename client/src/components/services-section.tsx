@@ -21,9 +21,9 @@ import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
 import salesTeamImage from "@assets/IMG_20250322_162658_1752355169600.jpg";
 // Videovigilância carousel images
-import cameraImage1 from "@assets/IMG_20250618_121441_4_11zon_1752745245179.jpg";
-import cameraImage2 from "@assets/IMG_20250618_122018_5_11zon_1752745245181.jpg";
-import cameraImage3 from "@assets/IMG_20250618_122139_6_11zon_1752745245181.jpg";
+import cameraImage1 from "@assets/Camer 1.jpg";
+import cameraImage2 from "@assets/camera 2.jpg";
+import cameraImage3 from "@assets/camera 3.jpg";
 // Vídeo Porteiro carousel images
 import videoIntercomImage1 from "@assets/porteiro 1.jpg";
 import videoIntercomImage2 from "@assets/porteiro 2.jpg";
