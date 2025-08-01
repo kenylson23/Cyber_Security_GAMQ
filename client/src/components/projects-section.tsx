@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import SimpleCarousel from "@/components/simple-carousel";
 import electricFenceImage from "@assets/IMG_20250225_151918_1752355468124.jpg";
 import automaticGatesImage from "@assets/IMG_20250322_162658_1752355633154.jpg";
-import surveillanceSystemImage from "@assets/IMG_20250321_173542_1752356189979.jpg";
+// Sistema de Vigilância carousel images
+import surveillanceImage1 from "@assets/Camer 1.jpg";
+import surveillanceImage2 from "@assets/camera 2.jpg";
+import surveillanceImage3 from "@assets/camera 3.jpg";
 
 const projects = [
   {
@@ -22,8 +26,12 @@ const projects = [
   {
     title: "Sistema de Vigilância",
     description: "Implementação de sistemas CCTV com câmeras de alta definição e monitoramento 24/7",
-    image: surveillanceSystemImage,
-    hasCarousel: false,
+    images: [
+      surveillanceImage1,
+      surveillanceImage2,
+      surveillanceImage3
+    ],
+    hasCarousel: true,
     tags: ["CCTV", "Vigilância"]
   }
 ];
@@ -57,14 +65,24 @@ export default function ProjectsSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="project-card bg-black-medium rounded-xl overflow-hidden hover-3d tech-border transform-gpu hover-optimized"
             >
-              <div className="relative w-full h-48 overflow-hidden bg-gray-800">
-                <img
-                  src={project.image}
+              {project.hasCarousel && project.images ? (
+                <SimpleCarousel
+                  images={project.images}
                   alt={project.title}
-                  className="w-full h-48 object-cover"
-                  loading="lazy"
+                  className="h-48"
+                  autoPlay={true}
+                  autoPlayInterval={3000}
                 />
-              </div>
+              ) : (
+                <div className="relative w-full h-48 overflow-hidden bg-gray-800">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
               <div className="p-6">
                 <h3 className="text-xl font-orbitron font-bold mb-3 text-gold">
                   {project.title}
