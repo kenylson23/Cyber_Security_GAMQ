@@ -27,9 +27,9 @@ export default function AboutSection() {
             <OptimizedImage
               src={technicianImage}
               alt="Técnico da G.A.M.Q trabalhando com equipamentos de segurança electrônica"
-              className="rounded-xl shadow-2xl hover-3d"
-              width={600}
-              height={400}
+              className="rounded-xl shadow-2xl hover-3d max-w-md mx-auto"
+              width={400}
+              height={300}
             />
           </div>
           <div>
@@ -38,7 +38,7 @@ export default function AboutSection() {
             </h2>
             <p className="text-lg text-gray-300 mb-6">
               Somos uma empresa especializada em equipamentos de segurança electrônica, oferecendo venda, 
-              instalação, manutenção de equipamentos de segurança electrônica e serviços elétricos. Com experiência no mercado, 
+              instalação, manutenção de equipamentos de segurança electrônica e outros serviços. Com experiência no mercado, 
               oferecemos soluções de alta qualidade e suporte técnico especializado.
             </p>
             <div className="space-y-4">

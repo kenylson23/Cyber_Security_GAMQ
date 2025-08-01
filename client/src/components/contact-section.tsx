@@ -41,12 +41,17 @@ export default function ContactSection() {
     mutationFn: async (data: ContactFormData) => {
       return await apiRequest("POST", "/api/contact", data);
     },
-    onSuccess: () => {
+    onSuccess: (_, data) => {
       toast({
         title: "Mensagem enviada!",
-        description: "Entraremos em contato em breve.",
+        description: "Redirecionando para o WhatsApp...",
       });
       form.reset();
+      
+      // Aguarda um momento para o usuário ver a mensagem de sucesso
+      setTimeout(() => {
+        redirectToWhatsApp(data);
+      }, 1500);
     },
     onError: (error) => {
       toast({
@@ -56,6 +61,44 @@ export default function ContactSection() {
       });
     }
   });
+
+  const formatWhatsAppMessage = (data: ContactFormData) => {
+    const serviceMap: Record<string, string> = {
+      'videovigilancia': 'Videovigilância CCTV',
+      'cerca-electrica': 'Cerca Eléctrica',
+      'automacao-portoes': 'Automação de Portões',
+      'gps-tracking': 'GPS Tracking',
+      'controle-acesso': 'Controle de Acesso',
+      'video-interfone': 'Vídeo Interfone',
+      'fechaduras-electronicas': 'Fechaduras Electrónicas',
+      'biometria': 'Autenticação Biométrica',
+      'venda-equipamentos': 'Venda de Equipamentos',
+      'instalacao': 'Instalação Profissional',
+      'manutencao': 'Manutenção e Suporte',
+      'monitoramento': 'Monitoramento 24/7',
+      'outro': 'Outro Serviço'
+    };
+
+    const serviceName = serviceMap[data.service] || data.service;
+    
+    const message = `*NOVA SOLICITAÇÃO DE CONTACTO - GAMQ*
+
+*Nome:* ${data.name}
+*Email:* ${data.email}
+*Serviço:* ${serviceName}
+*Mensagem:* ${data.message}
+
+*Enviado através do website GAMQ*`;
+
+    return encodeURIComponent(message);
+  };
+
+  const redirectToWhatsApp = (data: ContactFormData) => {
+    const message = formatWhatsAppMessage(data);
+    // Formato correto para WhatsApp: código do país + número sem espaços ou caracteres especiais
+    const whatsappUrl = `https://wa.me/244923711556?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   const onSubmit = (data: ContactFormData) => {
     contactMutation.mutate(data);

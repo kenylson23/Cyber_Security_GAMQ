@@ -20,18 +20,41 @@ import technicianWorkingImage from "@assets/IMG_20250322_131457_1752354152611.jp
 import installationTeamImage from "@assets/IMG_20250322_162904_1752354528471.jpg";
 import securityInstallationImage from "@assets/IMG_20250226_094318_1752354829433.jpg";
 import salesTeamImage from "@assets/IMG_20250322_162658_1752355169600.jpg";
+// Videovigilância carousel images
+import cameraImage1 from "@assets/IMG_20250618_121441_4_11zon_1752745245179.jpg";
+import cameraImage2 from "@assets/IMG_20250618_122018_5_11zon_1752745245181.jpg";
+import cameraImage3 from "@assets/IMG_20250618_122139_6_11zon_1752745245181.jpg";
+// Vídeo Porteiro carousel images
+import videoIntercomImage1 from "@assets/porteiro 1.jpg";
+import videoIntercomImage2 from "@assets/porteiro 2.jpg";
+import videoIntercomImage3 from "@assets/porteiro 3.jpg";
+// Automação de Portões carousel images
+import gateAutomationImage1 from "@assets/portão 1.jpg";
+import gateAutomationImage2 from "@assets/portão 2.jpg";
+import gateAutomationImage3 from "@assets/portão 3.jpg";
 // Electrical work carousel images (optimized selection)
 import electricalImage1 from "@assets/IMG_20250612_104821_5_11zon_1752747543695.jpg";
+import electricalImage2 from "@assets/IMG_20250614_100400_6_11zon_1752747543708.jpg";
 import electricalImage3 from "@assets/IMG_20250614_101003_1_11zon_1752747661213.jpg";
-import electricalImage5 from "@assets/IMG_20250614_133959_2_11zon_1752747695318.jpg";
+import electricalImage4 from "@assets/IMG_20250614_133959_2_11zon_1752747695318.jpg";
+import electricalImage5 from "@assets/IMG_20250614_134012_3_11zon_1752747695326.jpg";
+// Fechaduras Electrónicas carousel images
+import lockImage1 from "@assets/fechadura 1.jpg";
+import lockImage2 from "@assets/fechadura 2.jpg";
+// GPS Tracking image
+import gpsTrackingImage from "@assets/GPS.webp";
 
 const services = [
   {
     icon: Camera,
-    title: "Videovigilância CCTV",
+    title: "Câmeras de Videovigilância",
     description: "Instalação de câmeras de videovigilância para monitoramento 24/7 com tecnologia avançada",
-    image: securityInstallationImage,
-    hasCarousel: false
+    images: [
+      cameraImage1,
+      cameraImage2,
+      cameraImage3
+    ],
+    hasCarousel: true
   },
   {
     icon: Zap,
@@ -39,7 +62,9 @@ const services = [
     description: "Instalação e manutenção de cercas elétricas para segurança perimetral",
     images: [
       electricalImage1,
+      electricalImage2,
       electricalImage3,
+      electricalImage4,
       electricalImage5
     ],
     hasCarousel: true
@@ -48,44 +73,43 @@ const services = [
     icon: DoorOpen,
     title: "Automação de Portões",
     description: "Sistemas automatizados de portões com controles remotos e sensores de segurança",
-    image: salesTeamImage,
-    hasCarousel: false
+    images: [
+      gateAutomationImage1,
+      gateAutomationImage2,
+      gateAutomationImage3
+    ],
+    hasCarousel: true
   },
   {
     icon: MapPin,
     title: "GPS Tracking",
     description: "Sistemas de rastreamento GPS para veículos e equipamentos com monitoramento em tempo real",
-    image: technicianWorkingImage,
+    image: gpsTrackingImage,
     hasCarousel: false
   },
-  {
-    icon: Shield,
-    title: "Controle de Acesso",
-    description: "Sistemas de controle de acesso com cartões, códigos e tecnologia biométrica",
-    image: installationTeamImage,
-    hasCarousel: false
-  },
+  
   {
     icon: Phone,
-    title: "Vídeo Interfone",
+    title: "Vídeo Porteiro",
     description: "Sistemas de comunicação visual com interfones digitais de alta definição",
-    image: electricalImage5,
-    hasCarousel: false
+    images: [
+      videoIntercomImage1,
+      videoIntercomImage2,
+      videoIntercomImage3
+    ],
+    hasCarousel: true
   },
   {
     icon: Lock,
     title: "Fechaduras Electrónicas",
     description: "Fechaduras inteligentes com códigos, cartões e controle remoto via smartphone",
-    image: electricalImage3,
-    hasCarousel: false
+    images: [
+      lockImage1,
+      lockImage2
+    ],
+    hasCarousel: true
   },
-  {
-    icon: Fingerprint,
-    title: "Autenticação Biométrica",
-    description: "Sistemas de reconhecimento de impressões digitais e reconhecimento facial",
-    image: securityInstallationImage,
-    hasCarousel: false
-  },
+ 
   {
     icon: ShoppingCart,
     title: "Venda de Equipamentos",
@@ -145,8 +169,8 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
               className="service-card rounded-xl p-6 hover-3d tech-border transform-gpu hover-optimized"
             >
-              {/* Only Cerca Eléctrica should have carousel */}
-              {service.hasCarousel && service.images && service.title === "Cerca Eléctrica" ? (
+              {/* Services with carousel */}
+              {service.hasCarousel && service.images ? (
                 <SimpleCarousel
                   images={service.images}
                   alt={service.title}
